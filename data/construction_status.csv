@@ -1,0 +1,4 @@
+tower,status,completion_pct,delay_reason,risk,notes
+Tower A,on_track,88,,low,Tower A is progressing as planned with no major blockers.
+Tower B,delayed,72,material delivery issues,high,"Steel and facade material deliveries are 3-4 weeks behind schedule, holding up structural work on upper floors."
+Tower C,on_track,91,,low,Interior fit-out ahead of schedule.
