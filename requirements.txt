@@ -1,0 +1,7 @@
+# BuildWise Agentic AI — core dependencies
+langchain
+langchain-community
+langchain-core
+faiss-cpu
+sentence-transformers
+pandas

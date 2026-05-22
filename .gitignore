@@ -1,0 +1,10 @@
+# FAISS index binaries are rebuilt locally; keep the folder via .gitkeep
+vectorstore/faiss_index/index.faiss
+vectorstore/faiss_index/index.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
