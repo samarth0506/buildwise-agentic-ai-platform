@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "review_id": "REV-9E185B04",
+    "timestamp": "2026-05-23T13:44:47+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "original_response": "Tower B is delayed due to material delivery issues. Current completion is 72%.",
+    "edited_response": null,
+    "final_response": "Tower B is delayed due to material delivery issues. Current completion is 72%.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "status": "approved",
+    "reviewer": "human_reviewer",
+    "reviewed_at": "2026-05-23T13:44:47+00:00",
+    "rejection_reason": null,
+    "sources": [
+      "construction_status.csv"
+    ]
+  }
+]
