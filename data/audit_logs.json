@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2026-05-23 09:11",
+    "ticket_id": "T-1004",
+    "agent": "maintenance_agent",
+    "action": "draft_response_generated"
+  },
+  {
+    "timestamp": "2026-05-23 09:11",
+    "ticket_id": "T-1004",
+    "agent": "response_agent",
+    "action": "response_sent"
+  },
+  {
+    "timestamp": "2026-05-23 10:34",
+    "ticket_id": "T-1005",
+    "agent": "documentation_agent",
+    "action": "draft_response_generated"
+  },
+  {
+    "timestamp": "2026-05-22 14:06",
+    "ticket_id": "T-1001",
+    "agent": "confidence_check",
+    "action": "flagged_for_human_review"
+  },
+  {
+    "timestamp": "2026-05-22 16:19",
+    "ticket_id": "T-1002",
+    "agent": "escalation_agent",
+    "action": "escalated_to_manager"
+  }
+]

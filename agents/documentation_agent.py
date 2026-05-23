@@ -270,7 +270,7 @@ def handle_documentation_query(query: str) -> dict:
 
 if __name__ == "__main__":
     test_queries = [
-        "What KYC documents do I need to submit?",
+        "image.png",
         "How do I complete the booking form?",
         "Agreement registration and stamp duty process",
         "Home loan documents for bank sanction",
