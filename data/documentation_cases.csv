@@ -1,3 +1,201 @@
-case_id,topic,status,summary
-DOC-12,handover checklist,open,Buyer requested updated handover timeline for Tower B units.
-DOC-15,payment plan,resolved,Clarified milestone-based payment schedule for Tower A.
+case_id,customer_name,document_type,status,pending_documents,assigned_officer,submission_deadline
+DOC-ABFAB3,Pooja Patel,NOC,closed,"passport photo, NOC from builder",Sneha Reddy,2026-06-08
+DOC-FED87F,Aditya Gupta,occupancy certificate,resolved,none,Sneha Reddy,2026-06-05
+DOC-4738C4,Nikhil Fernandes,handover checklist,in_review,"sale deed draft, loan disbursement schedule, payment receipt",Vikram Desai,2026-06-15
+DOC-6F2DD5,Vivek Nair,loan approval,open,"address proof, Aadhaar, bank sanction letter",Ananya Iyer,2026-06-06
+DOC-7B9569,Nikhil Reddy,KYC,in_review,none,Rahul Menon,2026-06-16
+DOC-2B7441,Diya Sharma,handover checklist,closed,none,Rahul Menon,2026-06-19
+DOC-8F04A1,Lakshmi Nair,sale agreement,open,none,Vikram Desai,2026-06-30
+DOC-D94DAF,Neha Kumar,occupancy certificate,closed,occupancy certificate copy,Rahul Menon,2026-05-26
+DOC-9AEA08,Karan Joseph,occupancy certificate,in_review,loan disbursement schedule,Priya Sharma,2026-05-25
+DOC-8C8CAA,Karan Reddy,sale agreement,in_review,none,Ananya Iyer,2026-07-03
+DOC-BC8EE3,Lakshmi Fernandes,NOC,pending_customer,"NOC from builder, bank sanction letter, PAN copy",Priya Sharma,2026-07-04
+DOC-A386D3,Meera Das,registration,closed,"payment receipt, sale deed draft",Rahul Menon,2026-06-10
+DOC-A5C36A,Aarav Sharma,handover checklist,resolved,none,Rahul Menon,2026-06-28
+DOC-9E35F7,Vivek Sharma,NOC,closed,none,Ananya Iyer,2026-05-29
+DOC-9434C0,Pooja Rao,registration,closed,"occupancy certificate copy, NOC from builder",Rahul Menon,2026-06-08
+DOC-574FB3,Neha Das,sale agreement,resolved,none,Priya Sharma,2026-07-05
+DOC-B25A0C,Aditya Joseph,handover checklist,open,none,Rahul Menon,2026-06-08
+DOC-15374E,Aarav Fernandes,payment receipt,pending_customer,"passport photo, loan disbursement schedule",Ananya Iyer,2026-06-18
+DOC-EF1A7E,Neha Patel,payment receipt,pending_customer,"payment receipt, Aadhaar, address proof",Ananya Iyer,2026-05-28
+DOC-127D47,Neha Fernandes,payment receipt,closed,bank sanction letter,Rahul Menon,2026-06-09
+DOC-B6B51D,Meera Banerjee,payment receipt,in_review,bank sanction letter,Rahul Menon,2026-06-08
+DOC-FD0E7F,Harish Reddy,sale agreement,in_review,none,Arjun Nair,2026-05-29
+DOC-DDFB63,Anjali Rao,handover checklist,closed,none,Ananya Iyer,2026-05-23
+DOC-906535,Anjali Sharma,sale agreement,resolved,none,Vikram Desai,2026-06-28
+DOC-DCC2D6,Vivek Choudhury,loan approval,closed,"bank sanction letter, address proof, PAN copy",Vikram Desai,2026-06-09
+DOC-7E278F,Neha Reddy,handover checklist,closed,"NOC from builder, address proof",Arjun Nair,2026-05-25
+DOC-A6931E,Aarav Joseph,handover checklist,pending_customer,none,Rahul Menon,2026-07-06
+DOC-5F0EB6,Karan Gupta,NOC,closed,"payment receipt, sale deed draft",Ananya Iyer,2026-05-29
+DOC-AEE684,Neha Nair,payment receipt,pending_customer,"payment receipt, address proof",Rahul Menon,2026-06-22
+DOC-D57A1F,Pooja Iyer,NOC,pending_customer,"sale deed draft, occupancy certificate copy, address proof",Sneha Reddy,2026-06-15
+DOC-D78DDB,Aditya Banerjee,payment receipt,open,passport photo,Vikram Desai,2026-06-09
+DOC-BABDB5,Neha Iyer,payment receipt,in_review,"PAN copy, address proof, NOC from builder",Arjun Nair,2026-06-01
+DOC-D58AA2,Rohan Gupta,sale agreement,resolved,none,Sneha Reddy,2026-06-11
+DOC-8013CE,Lakshmi Iyer,KYC,resolved,none,Priya Sharma,2026-05-29
+DOC-1FD096,Neha Fernandes,payment receipt,pending_customer,none,Ananya Iyer,2026-06-22
+DOC-C993FB,Aditya Reddy,occupancy certificate,pending_customer,"payment receipt, PAN copy",Ananya Iyer,2026-06-15
+DOC-F84396,Sanya Patel,payment receipt,closed,sale deed draft,Arjun Nair,2026-06-28
+DOC-AFBBC2,Aditya Das,handover checklist,resolved,none,Ananya Iyer,2026-05-28
+DOC-9729E7,Anjali Reddy,handover checklist,in_review,"NOC from builder, loan disbursement schedule",Priya Sharma,2026-06-02
+DOC-7BDC34,Lakshmi Sharma,loan approval,pending_customer,"payment receipt, sale deed draft",Sneha Reddy,2026-06-06
+DOC-692E80,Neha Nair,NOC,pending_customer,"loan disbursement schedule, passport photo",Rahul Menon,2026-06-20
+DOC-78C187,Lakshmi Fernandes,loan approval,open,sale deed draft,Arjun Nair,2026-05-31
+DOC-9AC7CC,Harish Rao,registration,in_review,"Aadhaar, loan disbursement schedule, passport photo",Sneha Reddy,2026-06-02
+DOC-138B0D,Diya Sharma,KYC,open,none,Sneha Reddy,2026-06-17
+DOC-0A745C,Lakshmi Sharma,loan approval,open,"sale deed draft, bank sanction letter, passport photo",Vikram Desai,2026-07-03
+DOC-E1D1E6,Aarav Joseph,loan approval,in_review,PAN copy,Ananya Iyer,2026-06-25
+DOC-4AAAD5,Anjali Gupta,sale agreement,resolved,none,Ananya Iyer,2026-06-21
+DOC-C7F269,Pooja Rao,handover checklist,in_review,loan disbursement schedule,Arjun Nair,2026-07-06
+DOC-8C697E,Vivek Menon,NOC,closed,"payment receipt, occupancy certificate copy",Priya Sharma,2026-07-02
+DOC-876DAF,Aarav Kumar,handover checklist,pending_customer,"sale deed draft, address proof, loan disbursement schedule",Sneha Reddy,2026-06-15
+DOC-4C7C11,Nikhil Rao,loan approval,pending_customer,"passport photo, PAN copy, occupancy certificate copy",Ananya Iyer,2026-06-10
+DOC-A7D474,Pooja Menon,KYC,resolved,none,Priya Sharma,2026-06-10
+DOC-D01E9F,Lakshmi Fernandes,sale agreement,in_review,"NOC from builder, bank sanction letter, address proof",Arjun Nair,2026-06-18
+DOC-D23CD1,Rohan Reddy,NOC,resolved,none,Vikram Desai,2026-06-06
+DOC-69F2D3,Nikhil Sharma,payment receipt,closed,"sale deed draft, passport photo",Vikram Desai,2026-07-01
+DOC-63227F,Diya Joseph,payment receipt,open,sale deed draft,Vikram Desai,2026-06-03
+DOC-7518AF,Karan Kumar,handover checklist,pending_customer,"bank sanction letter, payment receipt, PAN copy",Sneha Reddy,2026-07-06
+DOC-65B9A1,Lakshmi Rao,KYC,in_review,"sale deed draft, address proof",Arjun Nair,2026-05-29
+DOC-8A57E5,Neha Menon,KYC,in_review,PAN copy,Ananya Iyer,2026-05-28
+DOC-618C86,Sanya Reddy,NOC,pending_customer,"occupancy certificate copy, PAN copy",Rahul Menon,2026-06-23
+DOC-59936B,Vivek Rao,KYC,pending_customer,none,Rahul Menon,2026-06-17
+DOC-A374D0,Diya Choudhury,payment receipt,pending_customer,none,Arjun Nair,2026-06-16
+DOC-2542C9,Meera Fernandes,payment receipt,resolved,none,Priya Sharma,2026-06-20
+DOC-32CAFB,Vivek Joseph,payment receipt,resolved,none,Rahul Menon,2026-05-29
+DOC-25E7B2,Rohan Patel,handover checklist,resolved,none,Rahul Menon,2026-07-05
+DOC-96410B,Rohan Rao,KYC,closed,none,Arjun Nair,2026-06-25
+DOC-2A48B8,Anjali Joseph,occupancy certificate,in_review,none,Rahul Menon,2026-06-15
+DOC-95048F,Nikhil Sharma,registration,in_review,"payment receipt, PAN copy, address proof",Sneha Reddy,2026-07-02
+DOC-9D8358,Aarav Kumar,registration,resolved,none,Sneha Reddy,2026-06-07
+DOC-CA4CD5,Karan Rao,handover checklist,closed,"Aadhaar, bank sanction letter",Priya Sharma,2026-06-01
+DOC-EB7D37,Nikhil Reddy,sale agreement,open,"address proof, passport photo",Rahul Menon,2026-05-26
+DOC-FA2FAA,Aarav Fernandes,handover checklist,in_review,"occupancy certificate copy, bank sanction letter",Vikram Desai,2026-06-12
+DOC-AC38F3,Neha Fernandes,sale agreement,in_review,none,Vikram Desai,2026-06-08
+DOC-1E2071,Sanya Fernandes,occupancy certificate,closed,"bank sanction letter, address proof, payment receipt",Vikram Desai,2026-07-06
+DOC-AED4E6,Vivek Iyer,occupancy certificate,closed,Aadhaar,Vikram Desai,2026-06-27
+DOC-2D9D47,Nikhil Joseph,occupancy certificate,pending_customer,"occupancy certificate copy, PAN copy",Sneha Reddy,2026-06-26
+DOC-989DCA,Sanya Fernandes,NOC,in_review,"loan disbursement schedule, bank sanction letter",Priya Sharma,2026-05-24
+DOC-2254F9,Sanya Nair,NOC,in_review,"passport photo, address proof, sale deed draft",Arjun Nair,2026-06-25
+DOC-D53A7C,Aarav Banerjee,sale agreement,open,none,Rahul Menon,2026-05-29
+DOC-D6FFE8,Neha Menon,loan approval,open,none,Priya Sharma,2026-06-04
+DOC-0C052F,Aarav Patel,KYC,closed,"occupancy certificate copy, passport photo, sale deed draft",Rahul Menon,2026-07-03
+DOC-125939,Sanya Gupta,registration,open,"Aadhaar, occupancy certificate copy, PAN copy",Arjun Nair,2026-06-05
+DOC-60AF5E,Anjali Das,NOC,pending_customer,none,Ananya Iyer,2026-07-07
+DOC-31C94C,Meera Gupta,KYC,open,none,Priya Sharma,2026-06-11
+DOC-9E5E19,Pooja Joseph,registration,in_review,"bank sanction letter, loan disbursement schedule, passport photo",Rahul Menon,2026-06-26
+DOC-D74015,Harish Reddy,NOC,open,"occupancy certificate copy, NOC from builder",Rahul Menon,2026-07-02
+DOC-FB53B6,Pooja Rao,loan approval,closed,"address proof, passport photo",Ananya Iyer,2026-06-17
+DOC-86625F,Anjali Fernandes,sale agreement,closed,"NOC from builder, loan disbursement schedule",Ananya Iyer,2026-06-12
+DOC-3F4621,Nikhil Gupta,payment receipt,closed,NOC from builder,Arjun Nair,2026-06-26
+DOC-4C8532,Rohan Das,occupancy certificate,pending_customer,"NOC from builder, PAN copy, passport photo",Priya Sharma,2026-06-20
+DOC-5CD209,Anjali Patel,loan approval,pending_customer,"bank sanction letter, loan disbursement schedule",Priya Sharma,2026-05-23
+DOC-59F040,Aarav Rao,occupancy certificate,closed,Aadhaar,Ananya Iyer,2026-06-24
+DOC-D6400F,Meera Sharma,loan approval,in_review,"loan disbursement schedule, bank sanction letter",Ananya Iyer,2026-06-08
+DOC-49EE4E,Lakshmi Patel,registration,closed,Aadhaar,Vikram Desai,2026-06-17
+DOC-CBE652,Lakshmi Das,loan approval,resolved,none,Priya Sharma,2026-07-06
+DOC-FB81A2,Sanya Banerjee,occupancy certificate,open,"Aadhaar, PAN copy, payment receipt",Vikram Desai,2026-06-28
+DOC-EA5C99,Sanjay Choudhury,NOC,open,none,Arjun Nair,2026-06-06
+DOC-68322E,Sanya Gupta,NOC,open,none,Sneha Reddy,2026-06-11
+DOC-4FABA2,Aarav Joseph,loan approval,pending_customer,address proof,Arjun Nair,2026-06-24
+DOC-035F16,Pooja Gupta,NOC,resolved,none,Priya Sharma,2026-06-30
+DOC-611F38,Nikhil Nair,payment receipt,resolved,none,Rahul Menon,2026-06-10
+DOC-68BFEA,Rohan Reddy,loan approval,pending_customer,"loan disbursement schedule, PAN copy, NOC from builder",Vikram Desai,2026-05-28
+DOC-01A9A2,Aditya Joseph,NOC,in_review,"passport photo, bank sanction letter, occupancy certificate copy",Sneha Reddy,2026-05-31
+DOC-7076FD,Diya Sharma,payment receipt,closed,bank sanction letter,Vikram Desai,2026-07-01
+DOC-8388C2,Sanjay Nair,sale agreement,closed,none,Vikram Desai,2026-05-28
+DOC-EFE425,Nikhil Sharma,sale agreement,pending_customer,"payment receipt, PAN copy",Rahul Menon,2026-06-04
+DOC-F62F7A,Aarav Banerjee,sale agreement,closed,occupancy certificate copy,Rahul Menon,2026-06-20
+DOC-25F6D4,Diya Fernandes,payment receipt,pending_customer,none,Priya Sharma,2026-06-01
+DOC-5E4178,Lakshmi Choudhury,payment receipt,closed,"PAN copy, payment receipt",Priya Sharma,2026-06-01
+DOC-AF8716,Aarav Patel,occupancy certificate,resolved,none,Rahul Menon,2026-06-22
+DOC-E966CA,Pooja Fernandes,payment receipt,in_review,"passport photo, occupancy certificate copy",Rahul Menon,2026-06-26
+DOC-3D6A04,Harish Joseph,KYC,resolved,none,Sneha Reddy,2026-06-29
+DOC-BE8DB4,Rohan Menon,KYC,pending_customer,none,Arjun Nair,2026-06-02
+DOC-74FC56,Diya Nair,occupancy certificate,open,none,Arjun Nair,2026-06-21
+DOC-57717C,Rohan Banerjee,occupancy certificate,pending_customer,none,Arjun Nair,2026-05-29
+DOC-2A44C5,Harish Patel,NOC,in_review,none,Vikram Desai,2026-06-16
+DOC-180DCC,Meera Gupta,registration,in_review,"passport photo, PAN copy, loan disbursement schedule",Ananya Iyer,2026-06-04
+DOC-288D30,Lakshmi Iyer,sale agreement,resolved,none,Priya Sharma,2026-06-17
+DOC-4F91E1,Rohan Choudhury,sale agreement,pending_customer,"bank sanction letter, passport photo",Priya Sharma,2026-06-14
+DOC-20BBA1,Vivek Sharma,occupancy certificate,resolved,none,Rahul Menon,2026-05-24
+DOC-27FDDB,Lakshmi Nair,loan approval,pending_customer,Aadhaar,Sneha Reddy,2026-06-17
+DOC-997327,Pooja Iyer,payment receipt,resolved,none,Vikram Desai,2026-06-07
+DOC-70C7A2,Sanjay Iyer,occupancy certificate,closed,"passport photo, address proof, bank sanction letter",Sneha Reddy,2026-06-13
+DOC-279E4C,Harish Choudhury,payment receipt,in_review,NOC from builder,Rahul Menon,2026-06-11
+DOC-BEF115,Karan Patel,loan approval,pending_customer,none,Rahul Menon,2026-05-27
+DOC-2E2961,Karan Choudhury,KYC,pending_customer,"sale deed draft, occupancy certificate copy, loan disbursement schedule",Rahul Menon,2026-06-18
+DOC-046D98,Nikhil Das,registration,in_review,none,Sneha Reddy,2026-06-03
+DOC-326548,Meera Menon,occupancy certificate,closed,loan disbursement schedule,Arjun Nair,2026-06-28
+DOC-1685E1,Lakshmi Joseph,KYC,pending_customer,"address proof, passport photo, occupancy certificate copy",Ananya Iyer,2026-05-28
+DOC-1B31AC,Neha Iyer,loan approval,resolved,none,Rahul Menon,2026-06-23
+DOC-C389BA,Meera Fernandes,payment receipt,in_review,"PAN copy, sale deed draft, NOC from builder",Arjun Nair,2026-05-25
+DOC-12BCB4,Anjali Das,payment receipt,in_review,occupancy certificate copy,Vikram Desai,2026-05-27
+DOC-D22CE4,Aditya Nair,sale agreement,resolved,none,Priya Sharma,2026-06-07
+DOC-CB63A1,Vivek Reddy,NOC,pending_customer,none,Vikram Desai,2026-06-17
+DOC-4E51F3,Vivek Choudhury,handover checklist,open,"PAN copy, passport photo, NOC from builder",Arjun Nair,2026-06-07
+DOC-C4319A,Neha Iyer,KYC,in_review,"NOC from builder, sale deed draft, passport photo",Vikram Desai,2026-06-10
+DOC-C05133,Anjali Joseph,occupancy certificate,closed,occupancy certificate copy,Vikram Desai,2026-05-26
+DOC-7841BE,Harish Fernandes,registration,closed,loan disbursement schedule,Sneha Reddy,2026-05-30
+DOC-907310,Sanya Rao,loan approval,resolved,none,Priya Sharma,2026-06-18
+DOC-52B1FC,Harish Fernandes,loan approval,resolved,none,Rahul Menon,2026-06-29
+DOC-ACDCAB,Diya Reddy,handover checklist,open,"address proof, Aadhaar",Arjun Nair,2026-06-08
+DOC-1FD891,Vivek Nair,handover checklist,pending_customer,"passport photo, address proof, NOC from builder",Priya Sharma,2026-05-28
+DOC-0FA924,Anjali Iyer,loan approval,pending_customer,address proof,Rahul Menon,2026-06-28
+DOC-C6282B,Rohan Fernandes,KYC,resolved,none,Vikram Desai,2026-06-11
+DOC-A3CB0C,Aarav Das,occupancy certificate,in_review,bank sanction letter,Ananya Iyer,2026-05-30
+DOC-CECF5B,Anjali Rao,KYC,resolved,none,Sneha Reddy,2026-06-23
+DOC-E6204E,Pooja Joseph,KYC,closed,bank sanction letter,Vikram Desai,2026-06-23
+DOC-C8A7F9,Diya Das,handover checklist,resolved,none,Sneha Reddy,2026-06-20
+DOC-136EF6,Anjali Banerjee,KYC,in_review,"loan disbursement schedule, passport photo",Rahul Menon,2026-06-27
+DOC-B0A122,Sanjay Patel,KYC,in_review,none,Priya Sharma,2026-06-01
+DOC-7FCBFD,Aarav Reddy,loan approval,open,"payment receipt, Aadhaar",Vikram Desai,2026-07-04
+DOC-A0EF06,Karan Rao,loan approval,in_review,"loan disbursement schedule, passport photo",Arjun Nair,2026-07-05
+DOC-D69D8E,Harish Nair,sale agreement,open,"payment receipt, loan disbursement schedule",Priya Sharma,2026-05-28
+DOC-5859E8,Diya Fernandes,NOC,closed,"occupancy certificate copy, address proof",Ananya Iyer,2026-05-27
+DOC-59180C,Pooja Kumar,sale agreement,closed,bank sanction letter,Priya Sharma,2026-06-18
+DOC-493282,Pooja Choudhury,registration,resolved,none,Arjun Nair,2026-07-06
+DOC-E2793A,Anjali Patel,occupancy certificate,resolved,none,Ananya Iyer,2026-06-30
+DOC-8F22D0,Nikhil Iyer,sale agreement,in_review,"passport photo, occupancy certificate copy, loan disbursement schedule",Sneha Reddy,2026-07-01
+DOC-F04FF6,Diya Kumar,payment receipt,pending_customer,none,Vikram Desai,2026-06-04
+DOC-E16F1E,Sanya Gupta,registration,in_review,"NOC from builder, PAN copy, payment receipt",Arjun Nair,2026-07-01
+DOC-20A187,Rohan Choudhury,payment receipt,open,sale deed draft,Priya Sharma,2026-07-02
+DOC-6CC000,Sanjay Patel,occupancy certificate,pending_customer,"PAN copy, Aadhaar",Ananya Iyer,2026-06-24
+DOC-DFF186,Anjali Iyer,NOC,closed,none,Rahul Menon,2026-07-01
+DOC-28E553,Neha Iyer,sale agreement,pending_customer,"occupancy certificate copy, PAN copy, address proof",Arjun Nair,2026-07-05
+DOC-C1D3BC,Pooja Fernandes,handover checklist,closed,"NOC from builder, PAN copy, sale deed draft",Arjun Nair,2026-06-13
+DOC-A60BA7,Meera Das,sale agreement,closed,none,Arjun Nair,2026-06-26
+DOC-C30FB6,Anjali Kumar,sale agreement,pending_customer,sale deed draft,Ananya Iyer,2026-05-27
+DOC-C6A0BA,Lakshmi Banerjee,NOC,closed,"address proof, Aadhaar, sale deed draft",Ananya Iyer,2026-06-02
+DOC-B46B23,Neha Menon,KYC,pending_customer,none,Ananya Iyer,2026-06-18
+DOC-C9344F,Sanya Choudhury,handover checklist,pending_customer,"address proof, Aadhaar",Priya Sharma,2026-06-05
+DOC-82E777,Nikhil Rao,payment receipt,open,none,Sneha Reddy,2026-06-20
+DOC-51677F,Karan Choudhury,loan approval,in_review,"passport photo, sale deed draft, payment receipt",Priya Sharma,2026-06-13
+DOC-555F64,Aarav Sharma,loan approval,in_review,"NOC from builder, passport photo, Aadhaar",Priya Sharma,2026-05-25
+DOC-DA7E52,Diya Gupta,registration,pending_customer,none,Arjun Nair,2026-06-21
+DOC-A7778F,Meera Menon,occupancy certificate,open,"bank sanction letter, payment receipt",Ananya Iyer,2026-06-28
+DOC-29ABB5,Karan Sharma,occupancy certificate,closed,"Aadhaar, sale deed draft, address proof",Priya Sharma,2026-06-12
+DOC-D2440A,Meera Gupta,KYC,closed,none,Ananya Iyer,2026-06-27
+DOC-B1F1C8,Karan Reddy,sale agreement,pending_customer,"loan disbursement schedule, bank sanction letter",Ananya Iyer,2026-06-01
+DOC-4F7165,Karan Kumar,sale agreement,closed,none,Vikram Desai,2026-06-20
+DOC-5BA1A7,Diya Nair,KYC,open,none,Vikram Desai,2026-06-16
+DOC-6CA4A1,Sanya Banerjee,loan approval,closed,"loan disbursement schedule, payment receipt, sale deed draft",Rahul Menon,2026-06-29
+DOC-0D2103,Karan Reddy,registration,resolved,none,Arjun Nair,2026-06-28
+DOC-233D64,Meera Menon,handover checklist,open,"occupancy certificate copy, loan disbursement schedule",Rahul Menon,2026-06-21
+DOC-4DC94F,Nikhil Banerjee,occupancy certificate,pending_customer,payment receipt,Ananya Iyer,2026-06-17
+DOC-96A50B,Diya Rao,handover checklist,resolved,none,Priya Sharma,2026-05-24
+DOC-01E58E,Anjali Iyer,sale agreement,resolved,none,Ananya Iyer,2026-06-21
+DOC-E9FF85,Diya Nair,sale agreement,closed,passport photo,Arjun Nair,2026-06-28
+DOC-2951CA,Nikhil Sharma,registration,pending_customer,none,Sneha Reddy,2026-06-27
+DOC-3226F0,Aditya Menon,handover checklist,resolved,none,Sneha Reddy,2026-06-29
+DOC-6B6B9D,Meera Banerjee,payment receipt,closed,"NOC from builder, Aadhaar, payment receipt",Arjun Nair,2026-06-02
+DOC-8DAB42,Nikhil Patel,NOC,resolved,none,Sneha Reddy,2026-06-28
+DOC-4792F4,Lakshmi Fernandes,payment receipt,in_review,none,Sneha Reddy,2026-07-04
+DOC-A79E21,Anjali Rao,handover checklist,open,"payment receipt, passport photo, Aadhaar",Rahul Menon,2026-06-29
+DOC-AF933F,Pooja Reddy,occupancy certificate,resolved,none,Arjun Nair,2026-05-27
+DOC-3C2978,Diya Menon,NOC,pending_customer,none,Rahul Menon,2026-06-23
+DOC-92A812,Vivek Sharma,KYC,in_review,occupancy certificate copy,Vikram Desai,2026-07-04
+DOC-7C5A41,Harish Nair,handover checklist,in_review,"sale deed draft, loan disbursement schedule",Arjun Nair,2026-06-05
+DOC-A26955,Pooja Gupta,sale agreement,open,none,Vikram Desai,2026-06-29
+DOC-77B5E7,Aarav Fernandes,loan approval,pending_customer,"passport photo, PAN copy",Sneha Reddy,2026-05-26
+DOC-565034,Meera Nair,sale agreement,open,none,Arjun Nair,2026-06-10

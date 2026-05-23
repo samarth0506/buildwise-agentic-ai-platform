@@ -1,369 +1,380 @@
 """
-BuildWise middleware router.
+BuildWise middleware router — main orchestrator for chat and API layers.
 
-Single entry point for the chat UI:
+Single entry point::
 
     from middleware.router import handle_user_query
     result = handle_user_query("Why is Tower B delayed?")
 
-Responsibilities:
-1. Detect the intent from keywords (escalation always wins).
-2. Call the matching specialist agent.
-3. Normalize the agent's reply into the unified UI shape.
-4. Apply human-in-the-loop (HITL) rules:
-   - sent_to_review  if confidence < 0.75 OR risk_level == "High"
-   - auto_approved   otherwise
-5. Generate a ticket_id and append to data/review_queue.json
-   whenever the case is sent for human review.
-
-Unified output shape:
-{
-    "final_response": str,
-    "intent":         str,
-    "agent_used":     str,
-    "confidence":     float,
-    "risk_level":     "High" | "Medium" | "Low",
-    "risk_flags":     list[str],
-    "sources":        list[str],
-    "status":         "sent_to_review" | "auto_approved",
-    "ticket_id":      str | None,
-}
+Pipeline: classify intent → specialist agent → customer response → risk check
+→ review queue / tickets → audit log → unified response dict.
 """
 
 from __future__ import annotations
 
-import json
-import os
-import random
-from datetime import datetime
-from typing import Callable
+import logging
+import sys
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from agents.construction_agent import handle_construction_query
 from agents.documentation_agent import handle_documentation_query
 from agents.escalation_agent import handle_escalation_query
+from agents.intent_classifier import classify_intent
 from agents.maintenance_agent import handle_maintenance_query
 from agents.property_agent import handle_property_query
+from agents.response_agent import generate_customer_response
 
-# ---------------------------------------------------------------------------
-# Routing keywords (lowercase substring matching). Order matters only for the
-# escalation tie-break — see _detect_intent.
-# ---------------------------------------------------------------------------
+from middleware.audit_logger import log_interaction
+from middleware.hitl_service import add_to_queue
+from middleware.risk_rules import check_risk
+from middleware.ticket_service import create_ticket, infer_priority, should_create_ticket
 
-ESCALATION_KEYWORDS = (
-    "angry",
-    "escalate",
-    "escalation",
-    "refund",
-    "compensation",
-    "legal",
-    "complaint",
-    "dispute",
-    "delay again",
-    "unacceptable",
-    "manager",
-)
+logger = logging.getLogger(__name__)
 
-MAINTENANCE_KEYWORDS = (
-    "leakage",
-    "plumbing",
-    "electrical",
-    "lift",
-    "parking",
-    "repair",
-    "maintenance",
-    "water",
-    "issue",
-    "defect",
-)
-
-DOCUMENTATION_KEYWORDS = (
-    "kyc",
-    "document",
-    "documents",
-    "registration",
-    "agreement",
-    "loan",
-    "pan",
-    "aadhaar",
-    "id proof",
-    "address proof",
-    "submit",
-    "pending documents",
-)
-
-PROPERTY_KEYWORDS = (
-    "2bhk",
-    "3bhk",
-    "flat",
-    "apartment",
-    "villa",
-    "property",
-    "price",
-    "availability",
-    "available",
-    "location",
-    "amenities",
-    "floor plan",
-    "budget",
-)
-
-CONSTRUCTION_KEYWORDS = (
-    "tower",
-    "construction",
-    "delay",
-    "delayed",
-    "progress",
-    "milestone",
-    "completion",
-    "possession status",
-)
-
-# Intent -> (agent function, display name for UI)
-AGENT_REGISTRY: dict[str, tuple[Callable[[str], dict], str]] = {
-    "escalation":            (handle_escalation_query,    "Escalation Agent"),
-    "maintenance_issue":     (handle_maintenance_query,   "Maintenance Agent"),
+# intent → (handler callable, display name for UI)
+AGENT_REGISTRY: Dict[str, tuple[Callable[[str], dict], str]] = {
+    "property_inquiry": (handle_property_query, "Property Agent"),
+    "construction_status": (handle_construction_query, "Construction Agent"),
     "documentation_support": (handle_documentation_query, "Documentation Agent"),
-    "property_inquiry":      (handle_property_query,      "Property Agent"),
-    "construction_status":   (handle_construction_query,  "Construction Agent"),
+    "maintenance_issue": (handle_maintenance_query, "Maintenance Agent"),
+    "escalation": (handle_escalation_query, "Escalation Agent"),
 }
 
-# ---------------------------------------------------------------------------
-# HITL configuration
-# ---------------------------------------------------------------------------
-
-LOW_CONFIDENCE_THRESHOLD = 0.75
-MEDIUM_CONFIDENCE_FLOOR = 0.60
-
-HIGH_RISK_TOKENS = frozenset(
-    {
-        "high_risk",
-        "legal_risk",
-        "payment_dispute",
-        "escalation",
-        "construction_delay",
-        # Common agent-level high-risk equivalents:
-        "legal_issue",
-        "safety_concern",
-        "safety_escalation",
-        "critical_priority",
-        "immediate_escalation",
-    }
-)
-MEDIUM_RISK_TOKENS = frozenset({"medium_risk"})
-
-DATA_DIR = "data"
-REVIEW_FILE = os.path.join(DATA_DIR, "review_queue.json")
+FALLBACK_INTENT = "escalation"
 
 
 # ---------------------------------------------------------------------------
-# Intent detection
+# Helpers
 # ---------------------------------------------------------------------------
 
-def _normalize(query: str) -> str:
-    return (query or "").lower().strip()
 
-
-def _matches_any(text: str, keywords: tuple[str, ...]) -> bool:
-    return any(keyword in text for keyword in keywords)
-
-
-def _detect_intent(query: str) -> str:
+def get_agent_handler(intent: str) -> Callable[[str], dict]:
     """
-    Decide which agent handles the query.
+    Return the specialist agent handler for *intent*.
 
-    Priority (highest first):
-      escalation -> maintenance -> documentation -> property -> construction
-    Escalation always wins because risky cases must not be auto-answered.
+    Unknown intents safely fall back to the escalation agent.
     """
-    text = _normalize(query)
-
-    if _matches_any(text, ESCALATION_KEYWORDS):
-        return "escalation"
-    if _matches_any(text, MAINTENANCE_KEYWORDS):
-        return "maintenance_issue"
-    if _matches_any(text, DOCUMENTATION_KEYWORDS):
-        return "documentation_support"
-    if _matches_any(text, PROPERTY_KEYWORDS):
-        return "property_inquiry"
-    if _matches_any(text, CONSTRUCTION_KEYWORDS):
-        return "construction_status"
-    return "general_inquiry"
+    key = (intent or "").lower().strip()
+    handler, _ = AGENT_REGISTRY.get(key, AGENT_REGISTRY[FALLBACK_INTENT])
+    return handler
 
 
-# ---------------------------------------------------------------------------
-# HITL helpers
-# ---------------------------------------------------------------------------
-
-def _derive_risk_level(risk_flags: list[str], confidence: float) -> str:
-    flags = {str(f).lower() for f in (risk_flags or [])}
-
-    if flags & HIGH_RISK_TOKENS:
-        return "High"
-    if (flags & MEDIUM_RISK_TOKENS) or (
-        MEDIUM_CONFIDENCE_FLOOR <= confidence < LOW_CONFIDENCE_THRESHOLD
-    ):
-        return "Medium"
-    return "Low"
+def get_agent_name(intent: str) -> str:
+    """Return the human-readable agent label for *intent*."""
+    key = (intent or "").lower().strip()
+    _, name = AGENT_REGISTRY.get(key, AGENT_REGISTRY[FALLBACK_INTENT])
+    return name
 
 
-def _derive_status(confidence: float, risk_level: str) -> str:
-    if confidence < LOW_CONFIDENCE_THRESHOLD or risk_level == "High":
-        return "sent_to_review"
-    return "auto_approved"
+def normalize_agent_response(
+    agent_response: Dict[str, Any],
+    fallback_intent: str,
+) -> Dict[str, Any]:
+    """
+    Normalize Member 1 agent output to the router's internal schema.
 
-
-def _new_ticket_id() -> str:
-    return f"HR-{random.randint(1000, 9999)}"
-
-
-def _append_to_review_queue(item: dict) -> bool:
-    """Safely append a sent_to_review item to data/review_queue.json."""
+    Ensures keys: intent, response, confidence, risk_flags, sources.
+    """
     try:
-        os.makedirs(DATA_DIR, exist_ok=True)
-        existing: list[dict] = []
-        if os.path.exists(REVIEW_FILE) and os.path.getsize(REVIEW_FILE) > 0:
-            try:
-                with open(REVIEW_FILE, "r", encoding="utf-8") as fh:
-                    loaded = json.load(fh)
-                if isinstance(loaded, list):
-                    existing = loaded
-            except (json.JSONDecodeError, OSError):
-                existing = []
+        confidence = float(agent_response.get("confidence", 0.0) or 0.0)
+    except (TypeError, ValueError):
+        confidence = 0.0
 
-        if any(r.get("ticket_id") == item["ticket_id"] for r in existing):
-            return False
+    confidence = max(0.0, min(1.0, confidence))
 
-        existing.append(item)
-        with open(REVIEW_FILE, "w", encoding="utf-8") as fh:
-            json.dump(existing, fh, indent=2)
-        return True
-    except OSError:
-        return False
+    intent = str(agent_response.get("intent") or fallback_intent or FALLBACK_INTENT)
+    response = str(
+        agent_response.get("response")
+        or agent_response.get("final_response")
+        or "We could not generate a response for your request."
+    )
 
+    risk_flags = agent_response.get("risk_flags")
+    if not isinstance(risk_flags, list):
+        risk_flags = list(risk_flags) if risk_flags else []
 
-# ---------------------------------------------------------------------------
-# Fallback for general_inquiry
-# ---------------------------------------------------------------------------
+    sources = agent_response.get("sources")
+    if not isinstance(sources, list):
+        sources = list(sources) if sources else []
 
-def _general_inquiry_response(query: str) -> dict:
     return {
-        "intent": "general_inquiry",
-        "response": (
-            "Thanks for reaching out to BuildWise. Could you share a bit more "
-            "detail about your query — for example, mention the tower, unit type, "
-            "document, or issue — so we can route it to the right team?"
-        ),
-        "confidence": 0.55,
-        "risk_flags": [],
-        "sources": [],
+        "intent": intent,
+        "response": response,
+        "confidence": round(confidence, 2),
+        "risk_flags": [str(f) for f in risk_flags if f is not None],
+        "sources": [str(s) for s in sources if s is not None],
     }
+
+
+def build_error_response(query: str, error_message: str) -> Dict[str, Any]:
+    """Build a unified error response when the query or pipeline fails."""
+    return {
+        "query": query or "",
+        "intent": "error",
+        "agent_used": "Router",
+        "response": error_message,
+        "final_response": error_message,
+        "confidence": 0.0,
+        "risk_flags": ["router_error"],
+        "risk_level": "low",
+        "sources": [],
+        "review_required": False,
+        "review_id": None,
+        "ticket_id": None,
+        "audit_log_id": None,
+        "status": "error",
+    }
+
+
+def _safe_call_agent(handler: Callable[[str], dict], query: str, intent: str) -> Dict[str, Any]:
+    """Invoke an agent handler; return a fallback dict on failure."""
+    try:
+        raw = handler(query)
+        if not isinstance(raw, dict):
+            raise TypeError(f"Agent returned {type(raw).__name__}, expected dict")
+        return normalize_agent_response(raw, fallback_intent=intent)
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("Agent handler failed for intent=%s: %s", intent, exc)
+        return normalize_agent_response(
+            {
+                "intent": intent,
+                "response": (
+                    "The specialist agent could not process your request. "
+                    "A human reviewer will follow up shortly."
+                ),
+                "confidence": 0.4,
+                "risk_flags": ["agent_error"],
+                "sources": [],
+            },
+            fallback_intent=intent,
+        )
+
+
+def _safe_generate_customer_response(agent_response: Dict[str, Any]) -> str:
+    """Wrap ``generate_customer_response`` so router never crashes."""
+    try:
+        return generate_customer_response(agent_response)
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("generate_customer_response failed: %s", exc)
+        return agent_response.get("response", "Thank you for contacting BuildWise.")
 
 
 # ---------------------------------------------------------------------------
 # Main entry point
 # ---------------------------------------------------------------------------
 
-def handle_user_query(query: str) -> dict:
+
+def handle_user_query(query: str) -> Dict[str, Any]:
     """
-    Route the query to the correct agent and return the unified UI shape.
+    Route a user message through the full middleware pipeline.
 
     Args:
-        query: Raw user message from the chatbot.
+        query: Raw user message from chat or API.
 
     Returns:
-        Dict with keys: final_response, intent, agent_used, confidence,
-        risk_level, risk_flags, sources, status, ticket_id.
+        Unified response dict for Member 3 UI and audit systems.
     """
-    intent = _detect_intent(query)
+    query_text = (query or "").strip()
 
-    if intent in AGENT_REGISTRY:
-        agent_fn, agent_label = AGENT_REGISTRY[intent]
-        try:
-            raw = agent_fn(query)
-        except Exception as exc:
-            raw = {
-                "intent": intent,
-                "response": (
-                    "The specialist agent could not process this request "
-                    f"({type(exc).__name__}). A human reviewer will follow up."
-                ),
-                "confidence": 0.4,
-                "risk_flags": ["agent_error"],
-                "sources": [],
-            }
-    else:
-        agent_label = "Response Agent"
-        raw = _general_inquiry_response(query)
-
-    final_response = raw.get("response") or raw.get("final_response") or "No response generated."
-    confidence = float(raw.get("confidence", 0.5) or 0.5)
-    risk_flags = list(raw.get("risk_flags", []) or [])
-    sources = list(raw.get("sources", []) or [])
-
-    risk_level = _derive_risk_level(risk_flags, confidence)
-    status = _derive_status(confidence, risk_level)
-    ticket_id = _new_ticket_id() if status == "sent_to_review" else None
-
-    result = {
-        "final_response": final_response,
-        "intent": raw.get("intent", intent),
-        "agent_used": agent_label,
-        "confidence": round(confidence, 2),
-        "risk_level": risk_level,
-        "risk_flags": risk_flags,
-        "sources": sources,
-        "status": status,
-        "ticket_id": ticket_id,
-    }
-
-    if status == "sent_to_review":
-        _append_to_review_queue(
-            {
-                "ticket_id": ticket_id,
-                "query": query,
-                "draft_response": final_response,
-                "confidence": result["confidence"],
-                "risk_level": risk_level.lower(),
-                "risk_flags": risk_flags,
-                "intent": result["intent"],
-                "agent_used": agent_label,
-                "sources": sources,
-                "status": "pending",
-                "created_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-            }
+    if not query_text:
+        return build_error_response(
+            query,
+            "Please enter a question or message so BuildWise can assist you.",
         )
 
-    return result
+    # 1. Classify intent
+    try:
+        intent = classify_intent(query_text)
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("classify_intent failed: %s", exc)
+        intent = FALLBACK_INTENT
+
+    if intent not in AGENT_REGISTRY:
+        logger.warning("Unknown intent '%s'; routing to escalation", intent)
+        intent = FALLBACK_INTENT
+
+    agent_name = get_agent_name(intent)
+    handler = get_agent_handler(intent)
+
+    # 2–4. Route and normalize agent response
+    agent_response = _safe_call_agent(handler, query_text, intent)
+
+    # 5. Customer-facing response
+    final_response = _safe_generate_customer_response(agent_response)
+
+    # 6. Risk evaluation
+    try:
+        risk_result = check_risk(agent_response, query_text)
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("check_risk failed: %s", exc)
+        risk_result = {
+            "review_required": True,
+            "risk_flags": ["risk_check_error"],
+            "risk_level": "medium",
+            "reason": f"Risk check failed: {type(exc).__name__}",
+        }
+
+    review_required = bool(risk_result.get("review_required", False))
+    risk_flags: List[str] = list(risk_result.get("risk_flags") or [])
+    risk_level = str(risk_result.get("risk_level", "low") or "low").lower()
+
+    review_id: Optional[str] = None
+    ticket_id: Optional[str] = None
+    audit_log_id: Optional[str] = None
+    router_status = "completed"
+    audit_review_status = "not_required"
+
+    # 7. Human review queue
+    if review_required:
+        router_status = "pending_review"
+        audit_review_status = "pending"
+        try:
+            queue_result = add_to_queue(query_text, agent_response, risk_result)
+            if queue_result.get("success"):
+                review_id = queue_result.get("review_id")
+            else:
+                logger.warning("add_to_queue failed: %s", queue_result.get("message"))
+        except Exception as exc:  # noqa: BLE001
+            logger.exception("add_to_queue raised: %s", exc)
+
+    # 8. Support ticket
+    try:
+        if should_create_ticket(agent_response.get("intent", intent), risk_flags):
+            priority = infer_priority(
+                agent_response.get("intent", intent),
+                risk_flags,
+            )
+            ticket_result = create_ticket(
+                query_text,
+                agent_response.get("intent", intent),
+                agent_response,
+                priority=priority,
+            )
+            if ticket_result.get("success"):
+                ticket_id = ticket_result.get("ticket_id")
+            else:
+                logger.info("Ticket not created: %s", ticket_result.get("message"))
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("create_ticket raised: %s", exc)
+
+    # 9. Audit log (always attempt)
+    try:
+        audit_result = log_interaction(
+            query=query_text,
+            intent=agent_response.get("intent", intent),
+            agent_response=agent_response,
+            risk_result=risk_result,
+            review_status=audit_review_status,
+            ticket_id=ticket_id,
+            review_id=review_id,
+        )
+        if audit_result.get("success"):
+            audit_log_id = audit_result.get("log_id")
+        else:
+            logger.warning("log_interaction failed: %s", audit_result.get("message"))
+    except Exception as exc:  # noqa: BLE001
+        logger.exception("log_interaction raised: %s", exc)
+
+    # 10. Unified response
+    return {
+        "query": query_text,
+        "intent": agent_response.get("intent", intent),
+        "agent_used": agent_name,
+        "response": agent_response.get("response", ""),
+        "final_response": final_response,
+        "confidence": agent_response.get("confidence", 0.0),
+        "risk_flags": risk_flags,
+        "risk_level": risk_level,
+        "sources": agent_response.get("sources", []),
+        "review_required": review_required,
+        "review_id": review_id,
+        "ticket_id": ticket_id,
+        "audit_log_id": audit_log_id,
+        "status": router_status,
+    }
 
 
 # ---------------------------------------------------------------------------
-# Self-test (run with: python -m middleware.router)
+# Self-test
 # ---------------------------------------------------------------------------
+
 
 if __name__ == "__main__":
-    samples = [
-        ("Show all tower status",                       "construction_status", "auto_approved"),
-        ("Why is Tower B delayed?",                     "construction_status", "sent_to_review"),
-        ("What KYC documents do I need to submit?",     "documentation_support", None),
-        ("Water leakage in apartment 1203",             "maintenance_issue",   None),
-        ("Show me 2BHK under 90 lakhs in Bangalore",    "property_inquiry",    None),
-        ("I am angry about my payment dispute",         "escalation",          "sent_to_review"),
+    import json as _json
+    import sys
+
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+    from middleware.audit_logger import save_audit_logs
+    from middleware.hitl_service import save_review_queue
+    from middleware.ticket_service import save_tickets
+
+    test_queries = [
+        "Why is Tower B delayed?",
+        "Water leakage in apartment 1203.",
+        "I am angry about my payment dispute.",
+        "Show me 2BHK under 90 lakhs in Bangalore.",
+        "What documents are pending for registration?",
     ]
 
+    # Clean JSON stores for deterministic demo assertions
+    save_review_queue([])
+    save_tickets([])
+    save_audit_logs([])
+
     print("BuildWise router — test run\n")
-    for q, expected_intent, expected_status in samples:
-        r = handle_user_query(q)
-        print("=" * 70)
+    results: list[Dict[str, Any]] = []
+
+    for q in test_queries:
+        result = handle_user_query(q)
+        results.append(result)
+        print("=" * 72)
         print(f"Q: {q}")
-        print(f"  intent     : {r['intent']}")
-        print(f"  agent_used : {r['agent_used']}")
-        print(f"  confidence : {r['confidence']}")
-        print(f"  risk_level : {r['risk_level']}")
-        print(f"  risk_flags : {r['risk_flags']}")
-        print(f"  status     : {r['status']}")
-        print(f"  ticket_id  : {r['ticket_id']}")
-        ok_intent = r["intent"] == expected_intent
-        ok_status = expected_status is None or r["status"] == expected_status
-        print(f"  intent ok? {ok_intent}   status ok? {ok_status}")
-        print(f"  preview    : {r['final_response'][:140]}...")
+        print(f"  intent          : {result['intent']}")
+        print(f"  agent_used      : {result['agent_used']}")
+        print(f"  confidence      : {result['confidence']}")
+        print(f"  risk_level      : {result['risk_level']}")
+        print(f"  risk_flags      : {result['risk_flags']}")
+        print(f"  review_required : {result['review_required']}")
+        print(f"  review_id       : {result['review_id']}")
+        print(f"  ticket_id       : {result['ticket_id']}")
+        print(f"  audit_log_id    : {result['audit_log_id']}")
+        print(f"  status          : {result['status']}")
+        print(f"  final_response  : {result['final_response'][:120]}...")
         print()
+
+    # Expected behavior assertions
+    tower_b = results[0]
+    assert tower_b["intent"] == "construction_status"
+    assert tower_b["status"] == "pending_review"
+    assert tower_b["review_id"] is not None
+    assert tower_b["audit_log_id"] is not None
+
+    leakage = results[1]
+    assert leakage["intent"] == "maintenance_issue"
+    assert leakage["ticket_id"] is not None
+
+    dispute = results[2]
+    assert dispute["intent"] == "escalation"
+    assert dispute["status"] == "pending_review"
+    assert dispute["ticket_id"] is not None
+    assert dispute["review_id"] is not None
+
+    property_q = results[3]
+    assert property_q["intent"] == "property_inquiry"
+    assert property_q["status"] == "completed"
+
+    docs = results[4]
+    assert docs["intent"] == "documentation_support"
+
+    empty = handle_user_query("")
+    assert empty["status"] == "error"
+
+    print("Sample unified response (Tower B):")
+    print(_json.dumps(tower_b, indent=2)[:900] + "\n...")
+    print("\nAll router checks: PASS")
