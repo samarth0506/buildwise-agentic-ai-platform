@@ -12,8 +12,8 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 
 from rag.data_loader import load_all_documents
 
