@@ -1,3 +1,201 @@
-issue_id,tower,issue_type,status,priority
-M-01,Tower B,elevator inspection,open,medium
-M-02,Tower A,HVAC filter replacement,closed,low
+apartment_id,issue_type,severity,status,assigned_team,reported_date,resolution_eta
+Tower-D-F4U8,AC issue,medium,escalated,Customer Support,2026-05-02,2026-05-04
+Tower-F-F6U2,plumbing,medium,in_progress,HVAC Services,2026-03-24,2026-03-25
+Tower-E-F17U5,plumbing,high,resolved,HVAC Services,2026-04-03,
+Tower-F-F4U1,AC issue,medium,closed,HVAC Services,2026-04-14,
+Tower-F-F19U2,parking access,low,closed,Facilities Management,2026-04-24,
+Tower-B-F12U3,electricity,low,open,Facilities Management,2026-04-09,2026-04-28
+Tower-A-F2U1,parking access,medium,open,Electrical Maintenance,2026-04-08,2026-04-24
+Tower-B-F2U7,elevator malfunction,medium,resolved,Customer Support,2026-04-07,
+Tower-C-F9U2,electricity,medium,resolved,Plumbing & Sanitary,2026-04-29,
+Tower-B-F8U1,AC issue,high,open,HVAC Services,2026-04-18,2026-05-03
+Tower-C-F3U8,elevator malfunction,low,resolved,HVAC Services,2026-03-24,
+Tower-F-F20U4,common area cleaning,critical,resolved,Electrical Maintenance,2026-04-22,
+Tower-F-F18U4,water leakage,low,open,HVAC Services,2026-04-02,2026-04-16
+Tower-F-F1U6,AC issue,low,closed,Facilities Management,2026-03-24,
+Tower-B-F14U8,electricity,low,in_progress,Electrical Maintenance,2026-03-27,2026-04-05
+Tower-E-F14U6,electricity,medium,open,Customer Support,2026-04-22,2026-05-11
+Tower-D-F3U1,AC issue,low,in_progress,HVAC Services,2026-04-20,2026-04-28
+Tower-D-F11U6,elevator malfunction,low,resolved,Electrical Maintenance,2026-04-21,
+Tower-B-F19U2,common area cleaning,medium,open,Elevator & Lifts,2026-04-02,2026-04-08
+Tower-A-F18U6,AC issue,medium,in_progress,Plumbing & Sanitary,2026-05-12,2026-05-27
+Tower-A-F6U5,elevator malfunction,high,escalated,HVAC Services,2026-05-15,2026-05-17
+Tower-B-F3U4,water leakage,medium,closed,HVAC Services,2026-04-15,
+Tower-B-F1U7,elevator malfunction,low,closed,Plumbing & Sanitary,2026-05-17,
+Tower-B-F4U1,elevator malfunction,high,in_progress,HVAC Services,2026-03-27,2026-04-01
+Tower-F-F21U2,electricity,low,escalated,Plumbing & Sanitary,2026-04-30,2026-05-09
+Tower-B-F21U8,parking access,low,in_progress,Elevator & Lifts,2026-05-14,2026-05-17
+Tower-A-F6U7,common area cleaning,low,closed,Customer Support,2026-05-15,
+Tower-D-F6U6,AC issue,medium,in_progress,Electrical Maintenance,2026-04-06,2026-04-15
+Tower-A-F20U4,common area cleaning,medium,resolved,Facilities Management,2026-05-04,
+Tower-D-F2U2,plumbing,medium,closed,Customer Support,2026-04-10,
+Tower-E-F8U1,common area cleaning,medium,resolved,Elevator & Lifts,2026-04-17,
+Tower-C-F19U6,plumbing,low,resolved,Facilities Management,2026-04-17,
+Tower-B-F1U5,parking access,high,closed,Electrical Maintenance,2026-03-27,
+Tower-B-F4U4,water leakage,high,in_progress,Electrical Maintenance,2026-05-05,2026-05-14
+Tower-E-F13U6,elevator malfunction,medium,in_progress,Customer Support,2026-05-22,2026-05-28
+Tower-F-F12U1,plumbing,medium,resolved,Electrical Maintenance,2026-05-08,
+Tower-D-F18U5,water leakage,low,closed,Electrical Maintenance,2026-04-04,
+Tower-E-F8U1,water leakage,medium,closed,Facilities Management,2026-04-26,
+Tower-B-F5U6,water leakage,low,in_progress,Facilities Management,2026-05-08,2026-05-19
+Tower-F-F5U2,electricity,medium,escalated,Customer Support,2026-05-17,2026-05-29
+Tower-D-F19U2,parking access,low,resolved,Electrical Maintenance,2026-04-14,
+Tower-F-F14U8,plumbing,high,resolved,Facilities Management,2026-05-04,
+Tower-F-F20U6,fire safety check,medium,escalated,Customer Support,2026-04-07,2026-04-13
+Tower-C-F5U3,fire safety check,high,open,Facilities Management,2026-05-09,2026-05-28
+Tower-A-F6U6,electricity,critical,escalated,Electrical Maintenance,2026-05-21,2026-05-29
+Tower-C-F3U4,plumbing,medium,resolved,Plumbing & Sanitary,2026-04-15,
+Tower-F-F22U6,elevator malfunction,low,open,Plumbing & Sanitary,2026-04-21,2026-04-30
+Tower-C-F9U2,fire safety check,medium,open,Elevator & Lifts,2026-05-09,2026-05-11
+Tower-B-F14U8,parking access,medium,closed,Plumbing & Sanitary,2026-05-19,
+Tower-D-F19U4,electricity,high,closed,Plumbing & Sanitary,2026-04-03,
+Tower-C-F1U6,parking access,low,open,Elevator & Lifts,2026-04-09,2026-04-12
+Tower-B-F3U2,common area cleaning,high,escalated,Elevator & Lifts,2026-04-14,2026-05-04
+Tower-F-F6U7,parking access,low,open,Electrical Maintenance,2026-04-03,2026-04-07
+Tower-D-F18U5,AC issue,low,resolved,Plumbing & Sanitary,2026-05-05,
+Tower-D-F19U8,water leakage,medium,open,HVAC Services,2026-04-02,2026-04-14
+Tower-F-F21U8,elevator malfunction,low,open,HVAC Services,2026-04-05,2026-04-06
+Tower-A-F16U2,common area cleaning,medium,closed,Customer Support,2026-04-12,
+Tower-C-F3U7,fire safety check,medium,resolved,Elevator & Lifts,2026-04-04,
+Tower-A-F9U8,elevator malfunction,high,resolved,Facilities Management,2026-04-22,
+Tower-A-F5U2,fire safety check,critical,resolved,Facilities Management,2026-03-29,
+Tower-B-F18U1,fire safety check,critical,closed,Customer Support,2026-05-16,
+Tower-D-F19U4,electricity,medium,resolved,Customer Support,2026-04-23,
+Tower-A-F17U3,plumbing,critical,closed,Electrical Maintenance,2026-03-31,
+Tower-B-F7U3,electricity,critical,closed,Elevator & Lifts,2026-03-26,
+Tower-B-F21U3,parking access,high,escalated,Plumbing & Sanitary,2026-05-16,2026-05-25
+Tower-A-F13U7,AC issue,medium,resolved,Plumbing & Sanitary,2026-04-28,
+Tower-F-F20U7,plumbing,low,closed,Facilities Management,2026-03-31,
+Tower-E-F4U2,parking access,high,open,HVAC Services,2026-04-29,2026-05-09
+Tower-D-F21U8,water leakage,low,escalated,Elevator & Lifts,2026-04-29,2026-05-15
+Tower-B-F20U7,parking access,medium,closed,Plumbing & Sanitary,2026-03-26,
+Tower-F-F16U5,water leakage,medium,resolved,HVAC Services,2026-05-20,
+Tower-C-F9U8,plumbing,medium,open,Customer Support,2026-05-17,2026-05-25
+Tower-D-F11U5,electricity,low,closed,Electrical Maintenance,2026-05-09,
+Tower-D-F16U6,plumbing,low,open,Customer Support,2026-05-15,2026-06-01
+Tower-E-F13U3,water leakage,low,escalated,Electrical Maintenance,2026-05-12,2026-05-31
+Tower-A-F8U1,elevator malfunction,low,open,Elevator & Lifts,2026-04-22,2026-05-04
+Tower-E-F13U2,parking access,medium,open,Elevator & Lifts,2026-05-06,2026-05-14
+Tower-B-F16U6,electricity,low,in_progress,Elevator & Lifts,2026-04-15,2026-04-24
+Tower-A-F6U4,elevator malfunction,medium,in_progress,HVAC Services,2026-05-17,2026-06-07
+Tower-F-F14U1,plumbing,medium,open,Facilities Management,2026-05-18,2026-06-03
+Tower-A-F8U5,AC issue,medium,resolved,Elevator & Lifts,2026-05-01,
+Tower-C-F15U5,AC issue,medium,closed,Facilities Management,2026-04-06,
+Tower-D-F19U2,AC issue,low,escalated,Plumbing & Sanitary,2026-03-24,2026-04-05
+Tower-D-F3U6,AC issue,low,resolved,Customer Support,2026-04-10,
+Tower-F-F10U4,water leakage,high,escalated,Facilities Management,2026-04-02,2026-04-10
+Tower-D-F22U6,common area cleaning,critical,in_progress,HVAC Services,2026-05-06,2026-05-07
+Tower-D-F13U7,elevator malfunction,medium,open,Customer Support,2026-05-10,2026-05-29
+Tower-B-F22U8,AC issue,high,resolved,Customer Support,2026-05-21,
+Tower-E-F6U5,plumbing,high,closed,Customer Support,2026-03-30,
+Tower-E-F6U6,parking access,low,open,HVAC Services,2026-05-04,2026-05-12
+Tower-D-F11U6,common area cleaning,high,escalated,Elevator & Lifts,2026-04-09,2026-04-19
+Tower-A-F21U2,electricity,high,in_progress,Elevator & Lifts,2026-04-23,2026-05-10
+Tower-E-F10U7,elevator malfunction,medium,in_progress,Facilities Management,2026-03-27,2026-04-01
+Tower-D-F5U6,common area cleaning,medium,in_progress,Electrical Maintenance,2026-05-18,2026-05-21
+Tower-C-F21U1,AC issue,low,closed,Electrical Maintenance,2026-03-24,
+Tower-E-F6U8,fire safety check,medium,open,Elevator & Lifts,2026-05-13,2026-05-18
+Tower-D-F16U7,elevator malfunction,high,open,Plumbing & Sanitary,2026-03-24,2026-04-11
+Tower-C-F17U4,elevator malfunction,low,open,HVAC Services,2026-03-25,2026-04-15
+Tower-C-F5U2,AC issue,low,escalated,Plumbing & Sanitary,2026-04-17,2026-05-06
+Tower-C-F10U8,parking access,medium,escalated,Customer Support,2026-05-09,2026-05-29
+Tower-B-F11U8,fire safety check,low,in_progress,Electrical Maintenance,2026-04-15,2026-04-21
+Tower-F-F5U4,plumbing,low,open,Customer Support,2026-05-09,2026-05-28
+Tower-F-F2U7,water leakage,medium,resolved,Plumbing & Sanitary,2026-05-19,
+Tower-F-F4U1,common area cleaning,medium,open,Facilities Management,2026-03-27,2026-04-10
+Tower-C-F16U3,fire safety check,medium,open,Customer Support,2026-04-06,2026-04-16
+Tower-E-F9U3,electricity,low,open,Plumbing & Sanitary,2026-04-19,2026-05-06
+Tower-D-F7U4,elevator malfunction,medium,resolved,Elevator & Lifts,2026-05-12,
+Tower-C-F6U1,elevator malfunction,medium,closed,Elevator & Lifts,2026-04-28,
+Tower-C-F8U1,common area cleaning,low,open,Plumbing & Sanitary,2026-03-24,2026-03-28
+Tower-E-F3U2,elevator malfunction,medium,resolved,HVAC Services,2026-05-20,
+Tower-C-F15U1,AC issue,medium,in_progress,Customer Support,2026-03-30,2026-04-01
+Tower-C-F14U2,plumbing,medium,open,Electrical Maintenance,2026-03-30,2026-03-31
+Tower-C-F12U8,electricity,medium,resolved,HVAC Services,2026-05-02,
+Tower-B-F4U7,AC issue,high,closed,Customer Support,2026-04-18,
+Tower-D-F14U3,plumbing,low,in_progress,Facilities Management,2026-03-31,2026-04-02
+Tower-D-F19U8,parking access,medium,escalated,Customer Support,2026-04-04,2026-04-17
+Tower-F-F5U8,electricity,high,closed,Elevator & Lifts,2026-05-21,
+Tower-A-F3U5,water leakage,high,resolved,Customer Support,2026-05-04,
+Tower-E-F19U4,electricity,medium,resolved,Customer Support,2026-05-05,
+Tower-B-F16U6,plumbing,high,closed,Facilities Management,2026-05-05,
+Tower-E-F2U1,common area cleaning,high,in_progress,Electrical Maintenance,2026-05-04,2026-05-21
+Tower-A-F16U6,AC issue,low,resolved,Electrical Maintenance,2026-04-08,
+Tower-E-F21U7,common area cleaning,medium,in_progress,Facilities Management,2026-04-18,2026-04-21
+Tower-D-F3U8,electricity,critical,resolved,Customer Support,2026-04-21,
+Tower-F-F1U2,water leakage,medium,closed,Plumbing & Sanitary,2026-04-18,
+Tower-A-F20U5,elevator malfunction,medium,escalated,Elevator & Lifts,2026-05-19,2026-06-06
+Tower-C-F12U1,parking access,medium,in_progress,Facilities Management,2026-05-15,2026-05-30
+Tower-E-F16U6,electricity,low,closed,Customer Support,2026-05-08,
+Tower-B-F1U6,parking access,high,resolved,Plumbing & Sanitary,2026-04-15,
+Tower-B-F16U3,electricity,low,closed,Electrical Maintenance,2026-05-15,
+Tower-B-F4U7,elevator malfunction,high,closed,Plumbing & Sanitary,2026-04-06,
+Tower-D-F2U2,common area cleaning,medium,closed,Facilities Management,2026-05-12,
+Tower-B-F16U1,fire safety check,high,open,Elevator & Lifts,2026-04-26,2026-05-14
+Tower-E-F6U3,fire safety check,medium,in_progress,Facilities Management,2026-05-09,2026-05-13
+Tower-C-F17U7,AC issue,medium,escalated,HVAC Services,2026-04-19,2026-04-27
+Tower-C-F15U3,AC issue,high,closed,Facilities Management,2026-04-01,
+Tower-C-F18U4,AC issue,medium,in_progress,Customer Support,2026-04-05,2026-04-25
+Tower-B-F21U3,parking access,high,escalated,HVAC Services,2026-04-25,2026-05-16
+Tower-E-F16U7,fire safety check,high,escalated,Facilities Management,2026-05-06,2026-05-16
+Tower-A-F1U7,elevator malfunction,low,open,Electrical Maintenance,2026-04-02,2026-04-04
+Tower-C-F22U5,elevator malfunction,high,open,Plumbing & Sanitary,2026-04-02,2026-04-12
+Tower-C-F15U2,fire safety check,low,escalated,Customer Support,2026-05-02,2026-05-10
+Tower-C-F22U1,fire safety check,medium,closed,Customer Support,2026-05-22,
+Tower-C-F18U1,elevator malfunction,medium,resolved,Elevator & Lifts,2026-03-24,
+Tower-B-F21U6,elevator malfunction,high,escalated,Electrical Maintenance,2026-05-11,2026-05-29
+Tower-C-F15U3,plumbing,high,open,Plumbing & Sanitary,2026-05-06,2026-05-12
+Tower-D-F2U7,plumbing,low,escalated,HVAC Services,2026-04-10,2026-04-19
+Tower-A-F11U8,plumbing,critical,in_progress,Facilities Management,2026-05-08,2026-05-10
+Tower-A-F21U5,parking access,low,escalated,Customer Support,2026-04-24,2026-05-12
+Tower-C-F17U4,plumbing,medium,escalated,Facilities Management,2026-04-04,2026-04-07
+Tower-D-F3U6,parking access,medium,in_progress,Electrical Maintenance,2026-04-07,2026-04-18
+Tower-E-F17U8,parking access,medium,open,Customer Support,2026-04-28,2026-05-02
+Tower-E-F20U4,fire safety check,high,resolved,Plumbing & Sanitary,2026-03-26,
+Tower-D-F9U5,common area cleaning,medium,escalated,HVAC Services,2026-03-25,2026-04-06
+Tower-F-F7U6,plumbing,critical,open,Facilities Management,2026-04-25,2026-04-29
+Tower-E-F1U2,electricity,low,in_progress,Customer Support,2026-04-06,2026-04-20
+Tower-F-F14U2,common area cleaning,high,in_progress,Plumbing & Sanitary,2026-05-10,2026-05-11
+Tower-A-F3U1,electricity,medium,resolved,Electrical Maintenance,2026-04-04,
+Tower-C-F14U7,fire safety check,medium,closed,Elevator & Lifts,2026-04-21,
+Tower-F-F4U1,water leakage,high,escalated,Plumbing & Sanitary,2026-05-04,2026-05-07
+Tower-C-F17U2,electricity,low,resolved,Elevator & Lifts,2026-04-11,
+Tower-D-F13U1,elevator malfunction,low,in_progress,Elevator & Lifts,2026-04-23,2026-05-11
+Tower-E-F10U3,water leakage,medium,resolved,Facilities Management,2026-04-12,
+Tower-B-F4U1,fire safety check,medium,escalated,Plumbing & Sanitary,2026-03-24,2026-04-13
+Tower-C-F7U6,plumbing,low,closed,Electrical Maintenance,2026-04-06,
+Tower-E-F9U4,water leakage,high,in_progress,Facilities Management,2026-03-31,2026-04-19
+Tower-D-F21U2,electricity,low,open,Facilities Management,2026-04-11,2026-04-20
+Tower-D-F11U6,AC issue,medium,in_progress,Electrical Maintenance,2026-04-01,2026-04-05
+Tower-C-F16U8,plumbing,medium,escalated,HVAC Services,2026-04-14,2026-04-24
+Tower-C-F14U3,elevator malfunction,high,resolved,Customer Support,2026-03-24,
+Tower-F-F21U7,plumbing,medium,resolved,HVAC Services,2026-04-10,
+Tower-D-F15U8,common area cleaning,medium,resolved,Electrical Maintenance,2026-04-15,
+Tower-F-F20U2,plumbing,high,resolved,Electrical Maintenance,2026-05-16,
+Tower-C-F21U2,water leakage,high,open,Facilities Management,2026-05-09,2026-05-10
+Tower-D-F19U4,AC issue,medium,open,Facilities Management,2026-05-21,2026-06-08
+Tower-D-F21U3,elevator malfunction,high,closed,Facilities Management,2026-04-16,
+Tower-F-F10U3,electricity,medium,escalated,Facilities Management,2026-04-22,2026-05-09
+Tower-A-F22U4,plumbing,medium,escalated,Electrical Maintenance,2026-05-17,2026-05-23
+Tower-E-F19U3,parking access,low,closed,Elevator & Lifts,2026-05-10,
+Tower-B-F3U5,elevator malfunction,medium,in_progress,HVAC Services,2026-04-16,2026-04-18
+Tower-D-F16U8,parking access,low,open,Facilities Management,2026-05-19,2026-05-21
+Tower-F-F9U5,plumbing,medium,escalated,Elevator & Lifts,2026-04-30,2026-05-19
+Tower-C-F19U2,fire safety check,critical,resolved,Electrical Maintenance,2026-04-26,
+Tower-E-F13U6,common area cleaning,high,resolved,Facilities Management,2026-05-15,
+Tower-A-F17U3,electricity,medium,in_progress,HVAC Services,2026-04-21,2026-04-29
+Tower-B-F5U3,electricity,medium,resolved,Elevator & Lifts,2026-04-03,
+Tower-C-F4U8,common area cleaning,low,closed,Electrical Maintenance,2026-05-06,
+Tower-F-F14U1,plumbing,low,open,Facilities Management,2026-04-08,2026-04-13
+Tower-A-F19U3,plumbing,medium,in_progress,Elevator & Lifts,2026-03-27,2026-04-05
+Tower-E-F19U1,electricity,low,resolved,Facilities Management,2026-05-19,
+Tower-D-F16U3,plumbing,high,closed,Electrical Maintenance,2026-04-07,
+Tower-E-F22U5,common area cleaning,medium,resolved,Plumbing & Sanitary,2026-04-03,
+Tower-B-F13U7,elevator malfunction,medium,open,Facilities Management,2026-04-01,2026-04-02
+Tower-F-F14U3,common area cleaning,high,open,Facilities Management,2026-05-01,2026-05-07
+Tower-A-F18U2,plumbing,high,closed,Facilities Management,2026-03-29,
+Tower-A-F22U7,parking access,high,closed,Customer Support,2026-04-26,
+Tower-E-F14U4,fire safety check,medium,closed,Customer Support,2026-05-23,
+Tower-F-F19U2,common area cleaning,high,in_progress,Plumbing & Sanitary,2026-04-20,2026-04-29
+Tower-C-F20U7,water leakage,medium,in_progress,Plumbing & Sanitary,2026-04-09,2026-04-10
+Tower-E-F1U7,fire safety check,medium,in_progress,Electrical Maintenance,2026-05-04,2026-05-15
