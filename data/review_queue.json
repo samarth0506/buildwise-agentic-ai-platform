@@ -1,1 +1,114 @@
-[]
+[
+  {
+    "review_id": "REV-C66C8D62",
+    "timestamp": "2026-05-23T15:59:29+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "edited_response": null,
+    "final_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "status": "approved",
+    "reviewer": "streamlit_reviewer",
+    "reviewed_at": "2026-05-23T16:07:29+00:00",
+    "rejection_reason": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "review_id": "REV-D00CB077",
+    "timestamp": "2026-05-23T15:59:29+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "original_response": "**BuildWise — documentation support**\n\n**KYC documents**\nFor KYC you typically need: government photo ID (Aadhaar/passport), PAN card, passport-size photos, and address proof.\n\n**Steps:**\n1. Submit copies at the BuildWise sales office or secure upload portal.\n2. Verification usually takes 2–3 business days.\n3. You will receive email confirmation once KYC is approved.\n\n**Typical timeline:** 2–3 business days after complete submission\n**Contact:** documentation@buildwise.example\n\n**Next step:** Gather the listed documents and contact the team email above. Final requirements may vary by unit and bank — our team will confirm.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_documentation_faq"
+    ]
+  },
+  {
+    "review_id": "REV-76B4D454",
+    "timestamp": "2026-05-23T15:59:29+00:00",
+    "query": "Water leakage in apartment 1203",
+    "intent": "maintenance_issue",
+    "original_response": "**BuildWise — maintenance request**\n\nPriority: **HIGH**\nSuggested team: **Plumbing & Sanitary**\n\n**Plumbing** (priority: high)\nWater leaks and drainage issues are logged for the plumbing team. Please turn off local water supply if safe to do so.\n\n**What to do:**\n1. Note the location (tower, floor, unit) and when the issue started.\n2. Share photos if available via the resident portal.\n3. Avoid using affected fixtures until the team confirms it is safe.\n\n**Expected SLA:** Response within 24 hours; emergency leaks prioritized same day\n**Assigned team:** Plumbing & Sanitary\n\n**Next step:** Your request will be logged for the team above. You may receive a callback to confirm unit details. Resolution times depend on site access and parts availability.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.84,
+    "risk_flags": [
+      "maintenance_urgent"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_maintenance_playbook"
+    ]
+  },
+  {
+    "review_id": "REV-03F35647",
+    "timestamp": "2026-05-23T15:59:29+00:00",
+    "query": "I am angry about my payment dispute",
+    "intent": "escalation",
+    "original_response": "**BuildWise — escalation acknowledgment**\n\nThank you for raising this with us. Sensitive matters are reviewed by specialist teams — we cannot resolve legal, refund, or safety outcomes in this chat alone.\n\n**Priority:** CRITICAL\n**Escalation department:** Customer Relations / Legal & Compliance / Accounts & Billing\n\n**Angry customer / service complaint**\nWe understand you are unhappy with your experience. Your message has been escalated to our Customer Relations team.\n\n**Legal issue**\nMatters involving legal proceedings require review by our Legal & Compliance team. We will not discuss case merits in this channel.\n\n**Payment dispute**\nPayment disputes are reviewed by Accounts & Billing with finance oversight.\n\n**Suggested internal action:** (1) Assign a senior relationship manager to call back within 4 business hours. Acknowledge concerns without admitting liability. (2) Route to Legal & Compliance; do not provide legal advice in chat. Request written notice details and unit reference. (3) Freeze disputed line items pending audit; share transaction ID and receipt copies.\n\n**Next step for you:** A team member will contact you using your registered details. Please avoid sharing passwords or full bank account numbers in chat.\n\n*This message is an acknowledgment only — not a final decision on refunds, legal outcomes, or safety investigations.*",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.75,
+    "risk_flags": [
+      "angry_customer",
+      "legal_issue",
+      "payment_dispute",
+      "escalation_required"
+    ],
+    "risk_level": "high",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  },
+  {
+    "review_id": "REV-1FDB8F1E",
+    "timestamp": "2026-05-23T16:06:37+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  }
+]

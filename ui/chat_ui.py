@@ -1,77 +1,52 @@
 """
 BuildWise chatbot UI (Streamlit).
 
-All routing/HITL logic lives in middleware.router.handle_user_query.
-This file only:
-- collects user input
-- calls the router
-- renders the unified response shape
-
-If middleware.router cannot be imported (e.g. during early scaffolding),
-the page still loads with a safe inline fallback so the demo never crashes.
+Routes every user message through middleware.router.handle_user_query and
+renders the unified backend response. No mock agent logic lives here.
 """
 
 from __future__ import annotations
 
-import random
 from datetime import datetime
-from typing import Callable
 
 import streamlit as st
 
+from middleware.router import handle_user_query
+from ui.backend_bridge import normalize_router_result
+
 # ---------------------------------------------------------------------------
-# Router import (with safe fallback)
+# Pipeline
 # ---------------------------------------------------------------------------
-
-_router_fn: Callable[[str], dict] | None = None
-_router_import_error: str | None = None
-
-try:
-    from middleware.router import handle_user_query as _imported_router
-
-    _router_fn = _imported_router
-except Exception as exc:  # noqa: BLE001 - any import failure should not crash UI
-    _router_fn = None
-    _router_import_error = f"{type(exc).__name__}: {exc}"
-
-
-def _fallback_response(query: str) -> dict:
-    """Minimal stand-in if middleware.router is unavailable."""
-    return {
-        "final_response": (
-            "Router unavailable — please make sure `middleware/router.py` is "
-            "in place. Echoing your query so the UI keeps running:\n\n"
-            f"> {query}"
-        ),
-        "intent": "general_inquiry",
-        "agent_used": "Response Agent",
-        "confidence": 0.5,
-        "risk_level": "Medium",
-        "risk_flags": [],
-        "sources": [],
-        "status": "sent_to_review",
-        "ticket_id": f"HR-{random.randint(1000, 9999)}",
-    }
 
 
 def _run_pipeline(query: str) -> dict:
-    if _router_fn is None:
-        return _fallback_response(query)
+    """Call the backend router and normalize the result for display."""
     try:
-        return _router_fn(query)
-    except Exception as exc:  # noqa: BLE001
-        return {
-            **_fallback_response(query),
-            "final_response": (
-                f"Router raised {type(exc).__name__}: {exc}. "
-                "A human reviewer will follow up."
-            ),
-        }
+        raw = handle_user_query(query)
+        return normalize_router_result(raw)
+    except Exception as exc:  # noqa: BLE001 — keep chat usable on unexpected errors
+        return normalize_router_result(
+            {
+                "final_response": (
+                    "The BuildWise router could not process your request. "
+                    f"Error: {type(exc).__name__}: {exc}"
+                ),
+                "intent": "error",
+                "agent_used": "Router",
+                "confidence": 0.0,
+                "risk_flags": ["router_error"],
+                "risk_level": "high",
+                "sources": [],
+                "status": "error",
+                "review_required": True,
+            }
+        )
 
 
 # ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
+
 
 def _render_risk_badge(risk_level: str) -> None:
     """Show a colored callout for the risk level."""
@@ -85,34 +60,30 @@ def _render_risk_badge(risk_level: str) -> None:
 
 
 def _render_workflow_timeline(result: dict) -> None:
-    """Show the 6-step agent workflow for the current response."""
+    """Show the 5-step agent workflow for the current response."""
     intent = result.get("intent", "unknown")
     agent = result.get("agent_used", "Response Agent")
-    confidence = float(result.get("confidence", 0.0))
     risk_level = str(result.get("risk_level", "Low")).title()
     sent_to_review = result.get("status") == "sent_to_review"
 
-    final_step = (
-        "Human Review triggered"
-        if sent_to_review
-        else "Auto response delivered"
-    )
+    final_step = "HITL Triggered" if sent_to_review else "Auto Approved"
 
     steps = [
-        ("Query received",       "Captured from user input"),
-        ("Intent classified",    intent),
-        (f"{agent} invoked",     "Specialist agent generated draft"),
-        ("Confidence checked",   f"{confidence:.0%}"),
-        ("Risk checked",         risk_level),
-        (final_step,             "sent_to_review" if sent_to_review else "auto_approved"),
+        "Query Received",
+        f"Intent Classified ({intent})",
+        f"Agent Invoked ({agent})",
+        f"Risk Evaluation ({risk_level})",
+        final_step,
     ]
 
     with st.expander("Agent Workflow Timeline", expanded=True):
-        for idx, (title, detail) in enumerate(steps, start=1):
-            cols = st.columns([1, 4, 4])
-            cols[0].markdown(f"**Step {idx}**")
-            cols[1].markdown(f"**{title}**")
-            cols[2].markdown(f"`{detail}`")
+        for step in steps:
+            st.markdown(f"✔ {step}")
+
+
+def _display_id(result: dict) -> str:
+    """Prefer support ticket ID; fall back to review ID."""
+    return result.get("ticket_id") or result.get("review_id") or "—"
 
 
 def _render_response_cards(result: dict) -> None:
@@ -124,25 +95,22 @@ def _render_response_cards(result: dict) -> None:
     _render_risk_badge(result.get("risk_level", "Low"))
 
     col1, col2, col3 = st.columns(3)
-    col1.metric("Intent",     result.get("intent", "—"))
+    col1.metric("Intent", result.get("intent", "—"))
     col2.metric("Agent used", result.get("agent_used", "—"))
-    col3.metric("Status",     result.get("status", "—"))
+    col3.metric("Status", result.get("status", "—"))
 
     confidence = float(result.get("confidence", 0.0))
     col4, col5, col6 = st.columns(3)
     col4.metric("Confidence", f"{confidence:.0%}")
     col5.metric("Risk level", str(result.get("risk_level", "Low")).title())
-    col6.metric("Ticket ID",  result.get("ticket_id") or "—")
+    col6.metric("Ticket / Review ID", _display_id(result))
 
     st.caption("Confidence score")
     st.progress(min(max(confidence, 0.0), 1.0))
 
     if result.get("status") == "sent_to_review":
-        st.warning(
-            f"Response sent to Human Review Queue "
-            f"(ticket `{result.get('ticket_id')}`). "
-            "A reviewer will approve, reject, or edit it before it reaches the customer."
-        )
+        review_ref = result.get("review_id") or result.get("ticket_id") or "pending"
+        st.warning(f"⚠️ Sent to Human Review Queue (ref: `{review_ref}`)")
 
     if result.get("risk_flags"):
         with st.expander("Risk flags"):
@@ -153,6 +121,9 @@ def _render_response_cards(result: dict) -> None:
         with st.expander("Sources"):
             for src in result["sources"]:
                 st.markdown(f"- `{src}`")
+
+    if result.get("audit_log_id"):
+        st.caption(f"Audit log: `{result['audit_log_id']}`")
 
     _render_workflow_timeline(result)
 
@@ -176,14 +147,9 @@ def show_chat() -> None:
     st.header("BuildWise Assistant")
     st.caption(
         "Ask about construction status, property availability, documentation, "
-        "maintenance issues, or escalations."
+        "maintenance issues, or escalations. Responses are routed through the "
+        "BuildWise middleware pipeline."
     )
-
-    if _router_fn is None:
-        st.error(
-            f"middleware.router could not be loaded ({_router_import_error}). "
-            "Using a fallback so the UI still renders."
-        )
 
     _init_state()
 
