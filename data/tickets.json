@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "ticket_id": "TKT-B96BCCFC",
+    "timestamp": "2026-05-23T13:53:20+00:00",
+    "query": "Water leakage in apartment 1203",
+    "intent": "maintenance_issue",
+    "issue_type": "maintenance_issue",
+    "priority": "high",
+    "status": "in_progress",
+    "response_summary": "Plumbing team assigned for water leakage in unit 1203.",
+    "risk_flags": [
+      "maintenance_urgent"
+    ],
+    "sources": [
+      "maintenance_issues.csv"
+    ]
+  },
+  {
+    "ticket_id": "TKT-3DC9050F",
+    "timestamp": "2026-05-23T13:53:20+00:00",
+    "query": "I am angry about my payment dispute",
+    "intent": "escalation",
+    "issue_type": "payment_dispute",
+    "priority": "high",
+    "status": "open",
+    "response_summary": "Payment dispute escalated to Accounts & Billing.",
+    "risk_flags": [
+      "angry_customer",
+      "payment_dispute"
+    ],
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  }
+]

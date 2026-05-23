@@ -28,7 +28,14 @@ from middleware.risk_rules import (
     normalize_risk_flags,
 )
 from middleware.router import handle_user_query
-from middleware.ticket_service import create_ticket
+from middleware.ticket_service import (
+    create_ticket,
+    get_all_tickets,
+    get_open_tickets,
+    infer_priority,
+    should_create_ticket,
+    update_ticket_status,
+)
 
 __all__ = [
     "add_to_queue",
@@ -40,15 +47,20 @@ __all__ = [
     "derive_risk_level",
     "detect_query_risk_flags",
     "edit_response",
+    "get_all_tickets",
     "get_audit_logs",
     "get_audit_summary",
+    "get_open_tickets",
     "get_pending_reviews",
     "handle_user_query",
     "has_low_confidence",
+    "infer_priority",
     "is_low_confidence",
     "log_event",
     "log_interaction",
     "normalize_risk_flags",
     "reject_response",
+    "should_create_ticket",
     "should_send_to_review",
+    "update_ticket_status",
 ]
