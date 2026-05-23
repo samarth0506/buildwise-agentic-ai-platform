@@ -1,0 +1,3 @@
+issue_id,tower,issue_type,status,priority
+M-01,Tower B,elevator inspection,open,medium
+M-02,Tower A,HVAC filter replacement,closed,low
