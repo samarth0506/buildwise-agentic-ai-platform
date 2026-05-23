@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "log_id": "LOG-C2E68BED",
+    "timestamp": "2026-05-23T13:47:21+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "response": "Tower B is delayed due to material delivery issues. Current completion is 72%.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": null,
+    "review_id": "REV-DEMO001",
+    "sources": [
+      "construction_status.csv"
+    ]
+  }
+]

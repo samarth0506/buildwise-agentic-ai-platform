@@ -4,7 +4,12 @@ BuildWise middleware package.
 Orchestration, confidence scoring, risk rules, HITL, tickets, and audit logging.
 """
 
-from middleware.audit_logger import log_event
+from middleware.audit_logger import (
+    get_audit_logs,
+    get_audit_summary,
+    log_event,
+    log_interaction,
+)
 from middleware.confidence import calculate_confidence, is_low_confidence
 from middleware.hitl_service import (
     add_to_queue,
@@ -35,11 +40,14 @@ __all__ = [
     "derive_risk_level",
     "detect_query_risk_flags",
     "edit_response",
+    "get_audit_logs",
+    "get_audit_summary",
     "get_pending_reviews",
     "handle_user_query",
     "has_low_confidence",
     "is_low_confidence",
     "log_event",
+    "log_interaction",
     "normalize_risk_flags",
     "reject_response",
     "should_send_to_review",
