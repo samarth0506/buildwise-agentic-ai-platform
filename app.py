@@ -12,6 +12,7 @@ import os
 import streamlit as st
 
 from ui import show_chat, show_dashboard, show_review_queue
+from ui.theme import inject_global_css, render_sidebar_nav
 
 PAGES = {
     "Chatbot": show_chat,
@@ -28,32 +29,20 @@ def _ensure_data_folder() -> None:
 def _configure_page() -> None:
     st.set_page_config(
         page_title="BuildWise Agentic AI",
-        page_icon=":building_construction:",
+        page_icon="🏗️",
         layout="wide",
         initial_sidebar_state="expanded",
     )
 
 
-def _render_sidebar() -> str:
-    with st.sidebar:
-        st.title("BuildWise")
-        st.caption("Agentic AI platform for real estate operations")
-        st.divider()
-        choice = st.radio(
-            "Navigation",
-            options=list(PAGES.keys()),
-            index=0,
-            label_visibility="collapsed",
-        )
-        st.divider()
-        st.caption("v0.1 — capstone build")
-    return choice
-
-
 def main() -> None:
     _configure_page()
+    inject_global_css()
     _ensure_data_folder()
-    choice = _render_sidebar()
+
+    with st.sidebar:
+        choice = render_sidebar_nav()
+
     page_fn = PAGES.get(choice, show_chat)
     page_fn()
 

@@ -67,5 +67,22 @@
     "sources": [
       "mock_construction_data"
     ]
+  },
+  {
+    "ticket_id": "TKT-E93083B1",
+    "timestamp": "2026-05-26T05:11:32+00:00",
+    "query": "why the tower B is delayed>",
+    "intent": "construction_status",
+    "issue_type": "construction_concern",
+    "priority": "high",
+    "status": "open",
+    "response_summary": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule,...",
+    "risk_flags": [
+      "construction_delay",
+      "high_risk"
+    ],
+    "sources": [
+      "mock_construction_data"
+    ]
   }
 ]

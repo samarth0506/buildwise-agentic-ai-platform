@@ -1,4 +1,6 @@
 # BuildWise Agentic AI — core dependencies
+streamlit>=1.28.0
+plotly>=5.18.0
 langchain
 langchain-community
 langchain-core

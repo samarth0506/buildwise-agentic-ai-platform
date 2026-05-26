@@ -156,5 +156,43 @@
       "mock_construction_data"
     ],
     "event_type": "review_approved"
+  },
+  {
+    "log_id": "LOG-66644F7A",
+    "timestamp": "2026-05-26T05:06:11+00:00",
+    "query": "show all the tower status",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-AF2B3094",
+    "timestamp": "2026-05-26T05:11:32+00:00",
+    "query": "why the tower B is delayed>",
+    "intent": "construction_status",
+    "response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": "TKT-E93083B1",
+    "review_id": "REV-14E1EED5",
+    "sources": [
+      "mock_construction_data"
+    ]
   }
 ]

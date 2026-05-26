@@ -1,8 +1,8 @@
 """
 BuildWise chatbot UI (Streamlit).
 
-Routes every user message through middleware.router.handle_user_query and
-renders the unified backend response. No mock agent logic lives here.
+Routes every user message through middleware.router.handle_user_query.
+Visual layer only — backend integration unchanged.
 """
 
 from __future__ import annotations
@@ -13,9 +13,21 @@ import streamlit as st
 
 from middleware.router import handle_user_query
 from ui.backend_bridge import normalize_router_result
+from ui.theme import (
+    alert_banner,
+    assistant_response_block,
+    chip_row,
+    confidence_meter,
+    empty_state,
+    page_header,
+    risk_variant,
+    user_bubble,
+    workflow_timeline,
+)
+
 
 # ---------------------------------------------------------------------------
-# Pipeline
+# Pipeline (unchanged backend integration)
 # ---------------------------------------------------------------------------
 
 
@@ -24,7 +36,7 @@ def _run_pipeline(query: str) -> dict:
     try:
         raw = handle_user_query(query)
         return normalize_router_result(raw)
-    except Exception as exc:  # noqa: BLE001 — keep chat usable on unexpected errors
+    except Exception as exc:  # noqa: BLE001
         return normalize_router_result(
             {
                 "final_response": (
@@ -48,84 +60,95 @@ def _run_pipeline(query: str) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def _render_risk_badge(risk_level: str) -> None:
-    """Show a colored callout for the risk level."""
-    level = (risk_level or "Low").title()
-    if level == "High":
-        st.error(f"Risk level: **{level}** — escalate or send for human review.")
-    elif level == "Medium":
-        st.warning(f"Risk level: **{level}** — monitor closely.")
-    else:
-        st.success(f"Risk level: **{level}** — safe to auto-respond.")
-
-
-def _render_workflow_timeline(result: dict) -> None:
-    """Show the 5-step agent workflow for the current response."""
+def _build_workflow_steps(result: dict) -> list[tuple[str, bool]]:
+    """Six-step enterprise workflow visualization."""
     intent = result.get("intent", "unknown")
     agent = result.get("agent_used", "Response Agent")
-    risk_level = str(result.get("risk_level", "Low")).title()
     sent_to_review = result.get("status") == "sent_to_review"
+    has_sources = bool(result.get("sources"))
+    final_label = "HITL Triggered" if sent_to_review else "Auto Approved"
 
-    final_step = "HITL Triggered" if sent_to_review else "Auto Approved"
-
-    steps = [
-        "Query Received",
-        f"Intent Classified ({intent})",
-        f"Agent Invoked ({agent})",
-        f"Risk Evaluation ({risk_level})",
-        final_step,
+    return [
+        ("Query Received", True),
+        (f"Intent Classified — {intent}", True),
+        (f"Agent Selected — {agent}", True),
+        (
+            "RAG Retrieval Completed" if has_sources else "RAG Retrieval — internal knowledge",
+            True,
+        ),
+        (
+            f"Confidence Evaluated — {float(result.get('confidence', 0)):.0%}",
+            True,
+        ),
+        (final_label, True),
     ]
 
-    with st.expander("Agent Workflow Timeline", expanded=True):
-        for step in steps:
-            st.markdown(f"✔ {step}")
+
+def _response_chips(result: dict) -> None:
+    """Agent, confidence, risk, and HITL badges."""
+    chips: list[tuple[str, str]] = [
+        (f"🤖 {result.get('agent_used', 'Agent')}", "agent"),
+        (f"📊 {float(result.get('confidence', 0)):.0%} confidence", "confidence"),
+        (f"⚡ {str(result.get('risk_level', 'Low')).title()} risk", risk_variant(result.get("risk_level", "low"))),
+    ]
+    if result.get("status") == "sent_to_review":
+        chips.append(("⚠️ HITL Review", "hitl"))
+    elif result.get("status") == "auto_approved":
+        chips.append(("✅ Auto Approved", "approved"))
+    chip_row(chips)
 
 
 def _display_id(result: dict) -> str:
-    """Prefer support ticket ID; fall back to review ID."""
     return result.get("ticket_id") or result.get("review_id") or "—"
 
 
-def _render_response_cards(result: dict) -> None:
-    """Render the full assistant message: response, metrics, risk, timeline."""
-    st.markdown("**Final response**")
-    with st.container(border=True):
-        st.markdown(result["final_response"])
+def _render_response_cards(result: dict, timestamp: str = "") -> None:
+    """Render polished assistant response with metrics and workflow."""
+    _response_chips(result)
 
-    _render_risk_badge(result.get("risk_level", "Low"))
+    if timestamp:
+        st.caption(f"🕐 {timestamp}")
 
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Intent", result.get("intent", "—"))
-    col2.metric("Agent used", result.get("agent_used", "—"))
-    col3.metric("Status", result.get("status", "—"))
-
-    confidence = float(result.get("confidence", 0.0))
-    col4, col5, col6 = st.columns(3)
-    col4.metric("Confidence", f"{confidence:.0%}")
-    col5.metric("Risk level", str(result.get("risk_level", "Low")).title())
-    col6.metric("Ticket / Review ID", _display_id(result))
-
-    st.caption("Confidence score")
-    st.progress(min(max(confidence, 0.0), 1.0))
+    assistant_response_block(result.get("final_response", ""))
 
     if result.get("status") == "sent_to_review":
-        review_ref = result.get("review_id") or result.get("ticket_id") or "pending"
-        st.warning(f"⚠️ Sent to Human Review Queue (ref: `{review_ref}`)")
+        ref = result.get("review_id") or result.get("ticket_id") or "pending"
+        alert_banner(f"⚠️ Sent to Human Review Queue — reference `{ref}`", "warning")
 
-    if result.get("risk_flags"):
-        with st.expander("Risk flags"):
+    confidence_meter(float(result.get("confidence", 0.0)))
+
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Intent", result.get("intent", "—"))
+    m2.metric("Status", str(result.get("status", "—")).replace("_", " ").title())
+    m3.metric("Ticket / Review ID", _display_id(result))
+
+    with st.expander("🔧 Technical details", expanded=False):
+        d1, d2 = st.columns(2)
+        d1.markdown(f"**Agent:** {result.get('agent_used', '—')}")
+        d1.markdown(f"**Risk level:** {result.get('risk_level', '—')}")
+        d2.markdown(f"**Audit log:** `{result.get('audit_log_id') or '—'}`")
+        d2.markdown(f"**Review ID:** `{result.get('review_id') or '—'}`")
+
+        if result.get("risk_flags"):
+            st.markdown("**Risk flags**")
             for flag in result["risk_flags"]:
                 st.markdown(f"- `{flag}`")
 
-    if result.get("sources"):
-        with st.expander("Sources"):
+        if result.get("sources"):
+            st.markdown("**Sources**")
             for src in result["sources"]:
                 st.markdown(f"- `{src}`")
 
-    if result.get("audit_log_id"):
-        st.caption(f"Audit log: `{result['audit_log_id']}`")
+        st.download_button(
+            label="📋 Copy response",
+            data=result.get("final_response", ""),
+            file_name="buildwise_response.txt",
+            mime="text/plain",
+            use_container_width=True,
+        )
 
-    _render_workflow_timeline(result)
+    with st.expander("🔄 Agent workflow timeline", expanded=True):
+        workflow_timeline(_build_workflow_steps(result))
 
 
 def _init_state() -> None:
@@ -135,45 +158,66 @@ def _init_state() -> None:
 
 def _render_history() -> None:
     for msg in st.session_state.chat_history:
-        with st.chat_message(msg["role"]):
-            if msg["role"] == "user":
-                st.markdown(msg["content"])
-            else:
-                _render_response_cards(msg["content"])
+        if msg["role"] == "user":
+            user_bubble(msg["content"])
+            if msg.get("timestamp"):
+                st.markdown(
+                    f'<p style="text-align:right;color:#64748b;font-size:0.72rem;margin:-0.25rem 0 0.75rem;">{msg["timestamp"]}</p>',
+                    unsafe_allow_html=True,
+                )
+        else:
+            with st.chat_message("assistant", avatar="🤖"):
+                _render_response_cards(msg["content"], msg.get("timestamp", ""))
 
 
 def show_chat() -> None:
     """Render the BuildWise chatbot page."""
-    st.header("BuildWise Assistant")
-    st.caption(
-        "Ask about construction status, property availability, documentation, "
-        "maintenance issues, or escalations. Responses are routed through the "
-        "BuildWise middleware pipeline."
+    page_header(
+        "BuildWise Assistant",
+        "Enterprise AI assistant with dynamic agent routing, RAG retrieval, and human-in-the-loop safeguards.",
+        badge="Online",
     )
 
     _init_state()
 
     with st.sidebar:
-        st.markdown("### Chat controls")
-        if st.button("Clear conversation", use_container_width=True):
+        st.markdown("##### Session controls")
+        if st.button("🗑️ Clear conversation", use_container_width=True):
             st.session_state.chat_history = []
+            st.toast("Conversation cleared", icon="✅")
             st.rerun()
-        st.caption(f"Messages in history: {len(st.session_state.chat_history)}")
-        st.caption(f"Session started: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        st.caption(f"Messages: **{len(st.session_state.chat_history)}**")
+        st.caption(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+
+    if not st.session_state.chat_history:
+        empty_state(
+            "💬",
+            "Start a conversation",
+            "Ask about tower status, KYC documents, maintenance issues, property listings, or escalations.",
+        )
 
     _render_history()
 
-    prompt = st.chat_input("Type your question for BuildWise...")
+    prompt = st.chat_input("Ask BuildWise anything — construction, docs, maintenance, property…")
     if not prompt:
         return
 
-    st.session_state.chat_history.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    ts = datetime.now().strftime("%H:%M:%S")
+    st.session_state.chat_history.append(
+        {"role": "user", "content": prompt, "timestamp": ts}
+    )
+    user_bubble(prompt)
 
-    with st.chat_message("assistant"):
-        with st.spinner("Routing through BuildWise agents..."):
+    with st.chat_message("assistant", avatar="🤖"):
+        with st.spinner("🔄 Routing through agents · evaluating risk · checking HITL…"):
             result = _run_pipeline(prompt)
-        _render_response_cards(result)
+        _render_response_cards(result, ts)
 
-    st.session_state.chat_history.append({"role": "assistant", "content": result})
+    st.session_state.chat_history.append(
+        {"role": "assistant", "content": result, "timestamp": ts}
+    )
+
+    if result.get("status") == "sent_to_review":
+        st.toast("Response queued for human review", icon="⚠️")
+    else:
+        st.toast("Response delivered", icon="✅")

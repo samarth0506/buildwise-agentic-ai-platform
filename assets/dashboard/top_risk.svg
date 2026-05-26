@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4c1d95"/>
+      <stop offset="1" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="160" rx="12" fill="url(#bg)"/>
+  <path d="M500 45 L500 75 C500 95 480 110 460 118 L460 135 L540 135 L540 118 C520 110 500 95 500 75 Z" fill="#fca5a5" opacity="0.9"/>
+  <rect x="500" y="118" width="40" height="28" rx="4" fill="#f87171"/>
+  <text x="500" y="95" text-anchor="middle" fill="#7f1d1d" font-family="Arial,sans-serif" font-size="28" font-weight="bold">!</text>
+  <circle cx="120" cy="100" r="35" fill="#ef4444" opacity="0.25"/>
+  <circle cx="200" cy="85" r="25" fill="#f97316" opacity="0.3"/>
+  <text x="48" y="42" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="22" font-weight="700">Top Risk Cases</text>
+  <text x="48" y="62" fill="#e9d5ff" font-family="Inter,Arial,sans-serif" font-size="13">High-risk reviews needing attention</text>
+</svg>

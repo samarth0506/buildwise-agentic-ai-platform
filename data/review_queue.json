@@ -110,5 +110,28 @@
     "sources": [
       "mock_construction_data"
     ]
+  },
+  {
+    "review_id": "REV-14E1EED5",
+    "timestamp": "2026-05-26T05:11:32+00:00",
+    "query": "why the tower B is delayed>",
+    "intent": "construction_status",
+    "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_construction_data"
+    ]
   }
 ]
