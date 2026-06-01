@@ -1,0 +1,201 @@
+tower,phase,completion_percent,status,delay_days,delay_reason,risk_level,contractor,expected_completion,last_updated
+Tower B,Phase 2,72,delayed,14,material delivery issues,high,L&T Construction,2026-09-30,2026-05-23
+Tower E,Phase 1,78,delayed,40,equipment breakdown,high,Sobha Developers,2027-11-24,2026-05-13
+Tower B,Phase 2,95,on_track,0,none,high,Brigade Builders,2026-10-23,2026-04-26
+Tower C,Phase 1,45,on_hold,51,labour shortage,high,Puravankara Projects,2027-05-01,2026-05-07
+Tower D,Phase 3,55,on_track,0,none,medium,Brigade Builders,2027-06-06,2026-05-06
+Tower C,Phase 4,41,delayed,44,monsoon impact,low,Prestige Constructions,2027-06-07,2026-05-16
+Tower F,Phase 2,54,on_hold,15,equipment breakdown,high,Prestige Constructions,2027-08-14,2026-05-23
+Tower F,Phase 4,64,delayed,41,design revision,high,Shapoorji Pallonji,2027-07-23,2026-05-14
+Tower F,Phase 4,46,ahead_of_schedule,0,none,high,Prestige Constructions,2028-01-23,2026-04-23
+Tower C,Phase 4,62,on_track,0,none,medium,Shapoorji Pallonji,2027-03-05,2026-04-27
+Tower B,Phase 1,47,on_track,0,none,high,Sobha Developers,2027-07-31,2026-04-27
+Tower E,Phase 2,55,on_track,0,none,low,L&T Construction,2027-11-12,2026-05-06
+Tower C,Phase 4,65,delayed,42,monsoon impact,high,Sobha Developers,2027-04-17,2026-04-30
+Tower C,Phase 4,95,on_hold,33,design revision,high,Prestige Constructions,2027-12-06,2026-05-17
+Tower D,Phase 2,88,on_track,0,none,low,Shapoorji Pallonji,2028-05-01,2026-05-20
+Tower C,Phase 1,96,on_track,0,none,medium,L&T Construction,2028-01-31,2026-05-02
+Tower A,Phase 2,69,ahead_of_schedule,0,none,medium,L&T Construction,2027-11-11,2026-05-23
+Tower B,Phase 4,79,ahead_of_schedule,0,none,low,Brigade Builders,2026-10-14,2026-05-09
+Tower C,Phase 2,45,on_track,0,none,medium,Prestige Constructions,2026-09-18,2026-05-22
+Tower A,Phase 2,77,ahead_of_schedule,0,none,low,Prestige Constructions,2026-09-29,2026-05-22
+Tower D,Phase 1,52,delayed,33,regulatory approval pending,high,Prestige Constructions,2026-09-09,2026-04-29
+Tower B,Phase 3,89,on_track,0,none,low,Prestige Constructions,2027-04-21,2026-04-26
+Tower A,Phase 1,93,on_track,0,none,low,Sobha Developers,2028-01-14,2026-05-10
+Tower A,Phase 3,65,delayed,12,monsoon impact,high,Sobha Developers,2027-04-24,2026-05-06
+Tower B,Phase 1,45,delayed,26,material delivery issues,high,Brigade Builders,2027-09-24,2026-04-24
+Tower F,Phase 1,82,on_track,0,none,medium,L&T Construction,2027-08-21,2026-05-04
+Tower B,Phase 3,48,delayed,24,labour shortage,low,Puravankara Projects,2027-02-16,2026-05-07
+Tower F,Phase 1,58,on_track,0,none,low,L&T Construction,2027-12-02,2026-05-02
+Tower B,Phase 3,60,on_track,0,none,low,Sobha Developers,2027-07-04,2026-05-05
+Tower E,Phase 2,39,on_track,0,none,high,Prestige Constructions,2027-06-09,2026-05-20
+Tower A,Phase 1,77,ahead_of_schedule,0,none,medium,Brigade Builders,2027-09-01,2026-05-21
+Tower D,Phase 3,66,delayed,14,regulatory approval pending,high,Puravankara Projects,2026-11-13,2026-05-06
+Tower A,Phase 3,58,on_track,0,none,high,L&T Construction,2027-07-15,2026-04-25
+Tower C,Phase 4,74,delayed,41,design revision,high,Brigade Builders,2027-08-15,2026-04-24
+Tower F,Phase 4,80,ahead_of_schedule,0,none,high,Puravankara Projects,2027-05-29,2026-05-18
+Tower A,Phase 2,86,on_track,0,none,medium,Shapoorji Pallonji,2026-09-21,2026-05-20
+Tower E,Phase 3,75,delayed,11,material delivery issues,medium,Brigade Builders,2027-08-26,2026-05-23
+Tower E,Phase 4,54,on_track,0,none,high,Prestige Constructions,2027-09-04,2026-05-07
+Tower A,Phase 1,81,delayed,23,design revision,medium,Puravankara Projects,2026-09-16,2026-04-28
+Tower D,Phase 3,50,on_track,0,none,medium,Shapoorji Pallonji,2027-11-20,2026-05-12
+Tower C,Phase 2,69,delayed,10,labour shortage,high,L&T Construction,2027-11-19,2026-05-18
+Tower F,Phase 1,75,on_hold,32,design revision,high,Sobha Developers,2028-03-06,2026-05-02
+Tower C,Phase 2,57,ahead_of_schedule,0,none,medium,Shapoorji Pallonji,2026-12-23,2026-05-18
+Tower B,Phase 3,98,on_track,0,none,low,Sobha Developers,2028-03-10,2026-05-04
+Tower D,Phase 1,51,ahead_of_schedule,0,none,high,Prestige Constructions,2026-10-27,2026-05-05
+Tower F,Phase 1,65,delayed,39,material delivery issues,medium,Brigade Builders,2027-11-24,2026-05-14
+Tower E,Phase 4,58,on_track,0,none,low,L&T Construction,2028-01-17,2026-05-19
+Tower A,Phase 2,73,on_track,0,none,low,Puravankara Projects,2027-07-17,2026-04-30
+Tower C,Phase 3,71,on_hold,26,labour shortage,high,Puravankara Projects,2026-12-27,2026-05-02
+Tower E,Phase 2,56,on_track,0,none,high,Puravankara Projects,2027-02-12,2026-05-12
+Tower F,Phase 1,78,on_hold,12,material delivery issues,high,Puravankara Projects,2026-10-06,2026-05-17
+Tower E,Phase 4,61,on_track,0,none,high,Brigade Builders,2026-09-21,2026-05-21
+Tower F,Phase 2,73,on_track,0,none,medium,Prestige Constructions,2027-10-10,2026-05-07
+Tower A,Phase 2,55,delayed,29,regulatory approval pending,high,Puravankara Projects,2027-07-07,2026-05-03
+Tower F,Phase 1,79,on_hold,18,monsoon impact,high,Shapoorji Pallonji,2027-07-13,2026-05-07
+Tower A,Phase 1,66,on_track,0,none,low,Prestige Constructions,2026-10-11,2026-05-23
+Tower D,Phase 2,88,ahead_of_schedule,0,none,low,Sobha Developers,2027-07-22,2026-05-16
+Tower C,Phase 4,55,on_track,0,none,medium,Prestige Constructions,2028-01-13,2026-05-08
+Tower A,Phase 4,85,on_track,0,none,high,Shapoorji Pallonji,2027-04-24,2026-05-11
+Tower C,Phase 4,71,on_track,0,none,medium,Sobha Developers,2027-06-09,2026-04-23
+Tower A,Phase 3,68,on_track,0,none,high,Prestige Constructions,2027-10-07,2026-04-24
+Tower D,Phase 3,59,on_track,0,none,medium,Brigade Builders,2026-11-04,2026-05-09
+Tower D,Phase 1,70,ahead_of_schedule,0,none,high,L&T Construction,2026-12-30,2026-05-05
+Tower C,Phase 3,78,ahead_of_schedule,0,none,high,Shapoorji Pallonji,2027-01-15,2026-05-12
+Tower E,Phase 1,40,on_track,0,none,low,Puravankara Projects,2027-01-08,2026-05-03
+Tower D,Phase 2,54,on_track,0,none,high,Sobha Developers,2027-07-22,2026-05-03
+Tower B,Phase 3,73,on_track,0,none,high,Sobha Developers,2028-01-22,2026-05-10
+Tower D,Phase 4,58,delayed,4,monsoon impact,medium,Prestige Constructions,2028-04-09,2026-05-18
+Tower F,Phase 4,38,ahead_of_schedule,0,none,high,Puravankara Projects,2027-05-19,2026-05-18
+Tower E,Phase 4,41,delayed,33,labour shortage,high,Puravankara Projects,2027-01-19,2026-04-30
+Tower A,Phase 4,49,delayed,4,regulatory approval pending,medium,Brigade Builders,2027-03-17,2026-05-09
+Tower E,Phase 2,42,on_hold,18,equipment breakdown,high,Prestige Constructions,2028-03-17,2026-05-14
+Tower D,Phase 4,75,on_track,0,none,low,Prestige Constructions,2028-02-17,2026-05-10
+Tower C,Phase 3,63,delayed,33,labour shortage,high,Prestige Constructions,2027-04-08,2026-05-17
+Tower C,Phase 3,84,delayed,33,monsoon impact,high,L&T Construction,2027-06-11,2026-05-11
+Tower F,Phase 2,85,on_track,0,none,medium,L&T Construction,2027-06-14,2026-05-02
+Tower F,Phase 3,91,on_track,0,none,high,Shapoorji Pallonji,2027-12-24,2026-04-29
+Tower E,Phase 1,69,on_track,0,none,low,Puravankara Projects,2028-05-12,2026-05-11
+Tower B,Phase 2,63,on_track,0,none,high,L&T Construction,2026-10-13,2026-05-06
+Tower C,Phase 2,47,delayed,11,material delivery issues,high,Puravankara Projects,2027-10-11,2026-05-22
+Tower D,Phase 3,60,on_track,0,none,medium,Puravankara Projects,2027-06-09,2026-04-24
+Tower A,Phase 2,64,delayed,5,labour shortage,high,Brigade Builders,2026-09-27,2026-05-18
+Tower D,Phase 1,72,on_track,0,none,low,Sobha Developers,2027-06-22,2026-05-12
+Tower A,Phase 4,77,on_hold,39,design revision,high,Sobha Developers,2027-01-05,2026-05-07
+Tower C,Phase 2,49,on_track,0,none,medium,Puravankara Projects,2027-12-03,2026-05-01
+Tower F,Phase 2,78,on_track,0,none,medium,Sobha Developers,2027-02-16,2026-05-20
+Tower F,Phase 3,89,ahead_of_schedule,0,none,high,Brigade Builders,2026-11-17,2026-05-14
+Tower A,Phase 3,52,on_track,0,none,medium,L&T Construction,2027-05-02,2026-05-01
+Tower D,Phase 3,69,on_track,0,none,medium,Puravankara Projects,2028-04-08,2026-05-11
+Tower A,Phase 2,81,on_track,0,none,high,Puravankara Projects,2026-10-23,2026-04-26
+Tower D,Phase 3,86,on_track,0,none,high,Puravankara Projects,2026-12-19,2026-05-22
+Tower C,Phase 2,63,on_track,0,none,low,Shapoorji Pallonji,2027-12-23,2026-05-07
+Tower F,Phase 4,82,on_hold,54,equipment breakdown,high,Puravankara Projects,2028-02-22,2026-05-19
+Tower B,Phase 4,45,ahead_of_schedule,0,none,high,Puravankara Projects,2028-02-12,2026-05-04
+Tower A,Phase 2,49,on_hold,45,equipment breakdown,high,Sobha Developers,2028-03-29,2026-04-27
+Tower B,Phase 2,91,on_track,0,none,low,Brigade Builders,2028-04-09,2026-04-25
+Tower E,Phase 2,42,on_track,0,none,medium,Brigade Builders,2028-01-28,2026-05-07
+Tower E,Phase 3,94,on_track,0,none,high,Brigade Builders,2026-09-12,2026-05-01
+Tower A,Phase 1,44,delayed,30,monsoon impact,high,Brigade Builders,2026-10-30,2026-04-24
+Tower C,Phase 4,52,on_track,0,none,high,Brigade Builders,2027-09-08,2026-05-07
+Tower D,Phase 3,52,on_track,0,none,high,Shapoorji Pallonji,2026-12-20,2026-05-10
+Tower D,Phase 1,63,on_track,0,none,low,Brigade Builders,2027-06-22,2026-05-14
+Tower F,Phase 2,83,on_track,0,none,low,Prestige Constructions,2027-12-05,2026-04-27
+Tower C,Phase 4,49,on_track,0,none,low,L&T Construction,2028-05-11,2026-04-30
+Tower B,Phase 1,39,on_track,0,none,medium,Puravankara Projects,2027-04-28,2026-04-24
+Tower D,Phase 2,62,on_track,0,none,low,Prestige Constructions,2028-01-18,2026-04-30
+Tower F,Phase 2,71,delayed,22,labour shortage,high,Prestige Constructions,2027-10-18,2026-05-01
+Tower A,Phase 4,57,delayed,30,equipment breakdown,high,Prestige Constructions,2028-02-09,2026-05-15
+Tower D,Phase 2,73,on_track,0,none,medium,Brigade Builders,2028-02-22,2026-04-30
+Tower B,Phase 1,53,on_track,0,none,medium,Brigade Builders,2028-03-18,2026-05-23
+Tower D,Phase 1,52,delayed,18,monsoon impact,medium,Prestige Constructions,2027-11-24,2026-04-25
+Tower E,Phase 1,59,delayed,20,regulatory approval pending,high,Shapoorji Pallonji,2026-11-03,2026-05-18
+Tower E,Phase 1,62,delayed,16,monsoon impact,medium,Shapoorji Pallonji,2027-03-25,2026-05-23
+Tower F,Phase 2,96,on_track,0,none,low,Shapoorji Pallonji,2027-10-01,2026-05-10
+Tower C,Phase 3,83,ahead_of_schedule,0,none,medium,Prestige Constructions,2027-07-02,2026-05-04
+Tower E,Phase 4,94,ahead_of_schedule,0,none,low,Shapoorji Pallonji,2027-07-14,2026-05-04
+Tower C,Phase 2,63,on_track,0,none,high,Prestige Constructions,2026-09-06,2026-05-10
+Tower E,Phase 2,67,delayed,12,labour shortage,medium,Sobha Developers,2028-01-14,2026-05-13
+Tower F,Phase 4,97,on_track,0,none,high,Shapoorji Pallonji,2027-12-05,2026-05-16
+Tower C,Phase 1,97,on_track,0,none,low,L&T Construction,2028-02-08,2026-05-19
+Tower A,Phase 2,41,on_hold,36,labour shortage,high,Puravankara Projects,2026-10-29,2026-04-27
+Tower A,Phase 1,93,on_track,0,none,medium,Puravankara Projects,2027-12-28,2026-05-08
+Tower A,Phase 1,87,on_track,0,none,low,Puravankara Projects,2028-02-14,2026-05-01
+Tower E,Phase 4,37,on_hold,54,design revision,high,L&T Construction,2027-02-20,2026-05-22
+Tower A,Phase 3,65,on_track,0,none,low,Prestige Constructions,2027-08-18,2026-05-18
+Tower D,Phase 2,86,on_track,0,none,medium,Prestige Constructions,2027-04-09,2026-05-14
+Tower A,Phase 1,39,delayed,28,regulatory approval pending,medium,Puravankara Projects,2026-08-30,2026-04-28
+Tower A,Phase 3,90,on_track,0,none,high,L&T Construction,2028-03-22,2026-05-21
+Tower E,Phase 4,64,on_hold,54,equipment breakdown,high,L&T Construction,2027-05-25,2026-05-22
+Tower A,Phase 3,70,delayed,39,design revision,low,Shapoorji Pallonji,2026-09-06,2026-05-11
+Tower B,Phase 3,85,ahead_of_schedule,0,none,low,Sobha Developers,2027-02-03,2026-04-30
+Tower E,Phase 3,84,ahead_of_schedule,0,none,high,Puravankara Projects,2027-09-18,2026-04-27
+Tower F,Phase 3,57,delayed,9,regulatory approval pending,medium,Sobha Developers,2028-05-01,2026-05-23
+Tower E,Phase 3,76,on_track,0,none,low,Brigade Builders,2027-11-25,2026-04-30
+Tower C,Phase 1,67,delayed,14,design revision,high,Shapoorji Pallonji,2027-06-19,2026-05-15
+Tower A,Phase 2,54,on_track,0,none,medium,Prestige Constructions,2027-09-23,2026-05-04
+Tower A,Phase 3,74,on_track,0,none,medium,L&T Construction,2027-05-24,2026-04-27
+Tower A,Phase 4,92,on_track,0,none,high,L&T Construction,2026-12-04,2026-04-25
+Tower C,Phase 1,76,delayed,3,monsoon impact,high,Shapoorji Pallonji,2028-03-15,2026-05-11
+Tower E,Phase 2,83,on_track,0,none,low,Prestige Constructions,2027-05-23,2026-05-01
+Tower D,Phase 3,56,on_track,0,none,medium,Prestige Constructions,2027-10-26,2026-05-08
+Tower A,Phase 4,66,on_track,0,none,high,Sobha Developers,2028-04-20,2026-04-29
+Tower D,Phase 4,73,on_track,0,none,low,Sobha Developers,2027-07-27,2026-05-05
+Tower C,Phase 2,90,on_track,0,none,high,Prestige Constructions,2027-06-24,2026-05-12
+Tower F,Phase 4,75,on_track,0,none,low,Prestige Constructions,2027-07-13,2026-05-16
+Tower F,Phase 3,66,delayed,27,monsoon impact,high,Sobha Developers,2026-12-15,2026-04-29
+Tower E,Phase 1,58,on_hold,59,equipment breakdown,high,Puravankara Projects,2027-12-06,2026-04-29
+Tower D,Phase 4,43,ahead_of_schedule,0,none,medium,Puravankara Projects,2027-01-10,2026-05-02
+Tower B,Phase 4,54,on_track,0,none,high,L&T Construction,2027-09-11,2026-05-07
+Tower E,Phase 4,86,on_track,0,none,high,L&T Construction,2028-02-28,2026-05-18
+Tower C,Phase 1,45,delayed,18,design revision,high,Puravankara Projects,2028-03-19,2026-05-14
+Tower F,Phase 1,77,on_track,0,none,medium,L&T Construction,2026-08-31,2026-05-01
+Tower B,Phase 3,63,on_track,0,none,medium,Brigade Builders,2027-09-25,2026-05-17
+Tower F,Phase 1,54,delayed,4,regulatory approval pending,medium,Puravankara Projects,2026-12-17,2026-04-27
+Tower C,Phase 4,93,on_track,0,none,low,Brigade Builders,2027-08-12,2026-04-26
+Tower D,Phase 1,77,delayed,7,monsoon impact,low,Prestige Constructions,2026-09-13,2026-05-13
+Tower A,Phase 3,56,delayed,18,equipment breakdown,medium,Brigade Builders,2028-03-16,2026-05-23
+Tower D,Phase 2,86,on_track,0,none,high,Puravankara Projects,2027-02-27,2026-05-14
+Tower D,Phase 4,60,on_track,0,none,medium,L&T Construction,2027-09-23,2026-05-15
+Tower B,Phase 1,43,on_track,0,none,high,Shapoorji Pallonji,2028-02-21,2026-05-04
+Tower C,Phase 4,49,on_track,0,none,medium,Puravankara Projects,2028-02-12,2026-05-03
+Tower E,Phase 1,85,on_track,0,none,high,Prestige Constructions,2027-08-12,2026-05-20
+Tower D,Phase 1,65,delayed,40,material delivery issues,high,Prestige Constructions,2027-04-22,2026-04-26
+Tower B,Phase 4,53,on_track,0,none,high,Sobha Developers,2027-10-23,2026-04-27
+Tower E,Phase 2,58,on_track,0,none,medium,Shapoorji Pallonji,2028-03-11,2026-05-08
+Tower C,Phase 1,75,on_track,0,none,medium,L&T Construction,2027-08-23,2026-05-08
+Tower B,Phase 4,84,on_track,0,none,high,Puravankara Projects,2027-10-13,2026-05-08
+Tower D,Phase 2,80,delayed,13,material delivery issues,high,L&T Construction,2027-06-16,2026-05-01
+Tower B,Phase 4,56,on_track,0,none,medium,Sobha Developers,2028-03-05,2026-04-26
+Tower E,Phase 1,81,on_track,0,none,high,Sobha Developers,2027-11-15,2026-04-29
+Tower D,Phase 1,66,on_track,0,none,medium,Prestige Constructions,2027-11-24,2026-05-04
+Tower A,Phase 2,50,on_track,0,none,low,Puravankara Projects,2028-04-14,2026-05-04
+Tower F,Phase 2,81,delayed,42,labour shortage,high,Sobha Developers,2026-10-20,2026-05-04
+Tower E,Phase 3,56,on_track,0,none,medium,Sobha Developers,2027-06-13,2026-05-01
+Tower E,Phase 1,47,on_hold,58,regulatory approval pending,high,Puravankara Projects,2027-05-31,2026-04-27
+Tower F,Phase 3,66,ahead_of_schedule,0,none,low,Puravankara Projects,2027-05-01,2026-05-05
+Tower D,Phase 4,69,on_track,0,none,high,Brigade Builders,2027-09-09,2026-04-25
+Tower F,Phase 3,46,ahead_of_schedule,0,none,medium,Brigade Builders,2027-09-02,2026-05-23
+Tower D,Phase 1,35,on_track,0,none,high,Puravankara Projects,2027-12-03,2026-05-14
+Tower F,Phase 4,43,on_track,0,none,high,Brigade Builders,2027-04-01,2026-05-19
+Tower B,Phase 3,76,on_track,0,none,medium,Sobha Developers,2028-03-03,2026-04-27
+Tower E,Phase 1,78,ahead_of_schedule,0,none,high,L&T Construction,2026-10-07,2026-05-13
+Tower D,Phase 4,55,on_track,0,none,medium,Brigade Builders,2026-08-21,2026-04-29
+Tower F,Phase 3,73,on_hold,27,material delivery issues,high,L&T Construction,2027-05-04,2026-05-04
+Tower F,Phase 3,56,on_hold,35,design revision,high,Brigade Builders,2027-04-17,2026-05-13
+Tower A,Phase 4,35,delayed,33,material delivery issues,medium,L&T Construction,2026-08-30,2026-05-15
+Tower C,Phase 2,89,ahead_of_schedule,0,none,high,L&T Construction,2027-12-23,2026-04-30
+Tower D,Phase 3,48,on_track,0,none,low,Prestige Constructions,2027-09-01,2026-04-27
+Tower D,Phase 2,52,ahead_of_schedule,0,none,high,Sobha Developers,2026-10-30,2026-05-11
+Tower A,Phase 2,56,delayed,25,design revision,medium,Sobha Developers,2027-10-16,2026-05-14
+Tower D,Phase 2,46,ahead_of_schedule,0,none,low,Sobha Developers,2026-12-25,2026-05-16
+Tower D,Phase 2,89,on_track,0,none,medium,Prestige Constructions,2027-05-01,2026-05-13
+Tower A,Phase 1,71,on_track,0,none,high,Shapoorji Pallonji,2027-06-25,2026-05-09
+Tower E,Phase 1,85,on_track,0,none,medium,Brigade Builders,2027-04-23,2026-05-05
+Tower A,Phase 1,44,on_track,0,none,high,Prestige Constructions,2027-08-25,2026-04-27
+Tower D,Phase 2,88,ahead_of_schedule,0,none,medium,L&T Construction,2027-12-16,2026-04-23
+Tower E,Phase 1,68,on_track,0,none,low,Brigade Builders,2026-10-21,2026-05-09
+Tower C,Phase 2,72,delayed,28,material delivery issues,high,L&T Construction,2027-06-01,2026-05-02
+Tower A,Phase 3,61,on_track,0,none,low,Sobha Developers,2027-09-25,2026-05-13
+Tower F,Phase 1,43,delayed,30,design revision,high,L&T Construction,2027-04-28,2026-05-22

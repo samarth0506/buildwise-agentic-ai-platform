@@ -6,6 +6,10 @@ No APIs or ML. Classifies into plumbing, electrical, parking, facility, safety, 
 
 from __future__ import annotations
 
+from agents.response_agent import apply_llm_to_agent_result
+
+AGENT_DISPLAY_NAME = "Maintenance Agent"
+
 # ---------------------------------------------------------------------------
 # Issue categories and playbooks
 # ---------------------------------------------------------------------------
@@ -322,15 +326,19 @@ def handle_maintenance_query(query: str) -> dict:
         suggested_team, sources
     """
     if not query or not query.strip():
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_categories(),
-            "confidence": 0.5,
-            "priority": "medium",
-            "risk_flags": [],
-            "suggested_team": "Customer Support (triage)",
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query or "",
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_categories(),
+                "confidence": 0.5,
+                "priority": "medium",
+                "risk_flags": [],
+                "suggested_team": "Customer Support (triage)",
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     issue_types = _detect_issue_types(query)
     priority = _resolve_priority(issue_types, query)
@@ -338,15 +346,19 @@ def handle_maintenance_query(query: str) -> dict:
     risk_flags = _build_risk_flags(issue_types, query, priority)
     confidence = _compute_confidence(issue_types)
 
-    return {
-        "intent": INTENT_LABEL,
-        "response": _build_response(query, issue_types, priority, suggested_team),
-        "confidence": confidence,
-        "priority": priority,
-        "risk_flags": risk_flags,
-        "suggested_team": suggested_team,
-        "sources": [SOURCE_LABEL],
-    }
+    return apply_llm_to_agent_result(
+        query,
+        {
+            "intent": INTENT_LABEL,
+            "response": _build_response(query, issue_types, priority, suggested_team),
+            "confidence": confidence,
+            "priority": priority,
+            "risk_flags": risk_flags,
+            "suggested_team": suggested_team,
+            "sources": [SOURCE_LABEL],
+        },
+        AGENT_DISPLAY_NAME,
+    )
 
 
 if __name__ == "__main__":

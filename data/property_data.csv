@@ -1,0 +1,201 @@
+project_name,tower,unit_id,bhk_type,square_feet,price_lakhs,location,availability_status,possession_date
+BuildWise Skyline,Tower F,BW-1A4B3EF2,1BHK,620,44.3,Bangalore — Whitefield,available,2027-05-06
+BuildWise Greens,Tower D,BW-6DEA5C16,1BHK,550,52.6,Bangalore — Indiranagar,blocked,2026-12-24
+BuildWise Meridian,Tower B,BW-7518AC5C,1BHK,750,59.1,Bangalore — Indiranagar,limited,2028-09-07
+BuildWise Greens,Tower C,BW-418615C4,4BHK,1900,194.2,Bangalore — Indiranagar,sold_out,2028-09-03
+BuildWise Greens,Tower C,BW-647DFD59,2BHK,920,62.3,Bangalore — Electronic City,sold_out,2027-10-14
+BuildWise Urbania,Tower F,BW-D764029E,3BHK,1590,127.0,Bangalore — Whitefield,waitlist,2027-01-25
+BuildWise Meridian,Tower C,BW-A12CABC3,1BHK,740,59.8,Bangalore — Indiranagar,available,2027-09-25
+BuildWise Skyline,Tower B,BW-1DD090BF,1BHK,570,63.3,Bangalore — HSR Layout,waitlist,2027-05-16
+BuildWise Skyline,Tower F,BW-3DBD7962,3BHK,1350,109.4,Bangalore — Hebbal,sold_out,2027-10-04
+BuildWise Heights,Tower F,BW-EC0BCA50,1BHK,720,53.1,Bangalore — Indiranagar,waitlist,2028-10-05
+BuildWise Meridian,Tower F,BW-50AEEC5F,4BHK,1980,153.5,Bangalore — Sarjapur,available,2028-08-21
+BuildWise Urbania,Tower C,BW-F5C736FD,2BHK,980,75.4,Bangalore — Whitefield,blocked,2026-11-26
+BuildWise Urbania,Tower F,BW-28622350,3BHK,1500,100.9,Bangalore — Electronic City,sold_out,2028-07-09
+BuildWise Lakeview,Tower F,BW-15B3680E,2BHK,1070,75.3,Bangalore — Electronic City,waitlist,2027-06-16
+BuildWise Heights,Tower B,BW-09DB9458,4BHK,2350,148.8,Bangalore — Sarjapur,available,2028-02-07
+BuildWise Heights,Tower F,BW-1ABBB18C,1BHK,680,36.0,Bangalore — Electronic City,waitlist,2028-05-22
+BuildWise Lakeview,Tower C,BW-60F831CE,4BHK,1710,200.2,Bangalore — Indiranagar,blocked,2028-08-16
+BuildWise Greens,Tower C,BW-1E88EA90,3BHK,1430,121.2,Bangalore — HSR Layout,available,2027-12-09
+BuildWise Lakeview,Tower B,BW-2AD67C90,3BHK,1310,129.2,Bangalore — Indiranagar,blocked,2028-06-21
+BuildWise Heights,Tower C,BW-0690DD98,2BHK,1070,78.8,Bangalore — Electronic City,blocked,2028-03-16
+BuildWise Greens,Tower A,BW-F55EBEDD,3BHK,1480,107.0,Bangalore — Hebbal,limited,2027-07-31
+BuildWise Urbania,Tower F,BW-FAAB51CD,1BHK,570,52.2,Bangalore — Whitefield,limited,2028-11-06
+BuildWise Lakeview,Tower D,BW-F329912C,2BHK,950,89.0,Bangalore — HSR Layout,blocked,2027-06-18
+BuildWise Meridian,Tower E,BW-1F09E0C1,4BHK,1950,145.5,Bangalore — Electronic City,sold_out,2028-09-19
+BuildWise Greens,Tower D,BW-B8B950E5,4BHK,2010,187.0,Bangalore — Indiranagar,available,2027-05-08
+BuildWise Greens,Tower B,BW-0EC6896B,2BHK,920,94.6,Bangalore — Indiranagar,limited,2028-09-13
+BuildWise Greens,Tower C,BW-E6DAEFED,1BHK,710,47.1,Bangalore — Whitefield,waitlist,2027-05-21
+BuildWise Meridian,Tower B,BW-8A461FA9,2BHK,1190,93.5,Bangalore — Indiranagar,limited,2028-04-26
+BuildWise Greens,Tower B,BW-361AC3C2,4BHK,1820,163.4,Bangalore — Hebbal,waitlist,2028-07-25
+BuildWise Greens,Tower F,BW-ED3C3C28,4BHK,1820,162.8,Bangalore — Hebbal,sold_out,2026-11-21
+BuildWise Heights,Tower B,BW-8E47F237,1BHK,720,37.6,Bangalore — Electronic City,limited,2027-12-23
+BuildWise Greens,Tower B,BW-DDDD911F,3BHK,1530,104.2,Bangalore — Hebbal,blocked,2028-04-05
+BuildWise Heights,Tower B,BW-03087234,1BHK,680,51.1,Bangalore — Whitefield,waitlist,2028-01-30
+BuildWise Greens,Tower D,BW-5EA78562,1BHK,670,53.3,Bangalore — Electronic City,waitlist,2027-06-18
+BuildWise Meridian,Tower F,BW-36C88411,3BHK,1600,116.6,Bangalore — Hebbal,limited,2028-07-28
+BuildWise Greens,Tower B,BW-45C8134C,2BHK,1080,74.8,Bangalore — Sarjapur,sold_out,2028-10-12
+BuildWise Urbania,Tower E,BW-249918CE,1BHK,710,44.6,Bangalore — Whitefield,blocked,2028-03-16
+BuildWise Lakeview,Tower A,BW-5E6E9201,1BHK,570,52.0,Bangalore — Electronic City,waitlist,2028-08-11
+BuildWise Lakeview,Tower B,BW-03927DB8,1BHK,740,60.6,Bangalore — Indiranagar,waitlist,2026-10-30
+BuildWise Meridian,Tower B,BW-95FB5981,3BHK,1450,102.3,Bangalore — Sarjapur,limited,2027-05-22
+BuildWise Greens,Tower C,BW-9A5125F1,3BHK,1250,114.7,Bangalore — Hebbal,blocked,2028-01-02
+BuildWise Heights,Tower E,BW-59FDD8C2,1BHK,710,44.1,Bangalore — Whitefield,sold_out,2027-06-18
+BuildWise Skyline,Tower C,BW-7A91E5BC,1BHK,600,51.4,Bangalore — Electronic City,sold_out,2027-12-12
+BuildWise Skyline,Tower E,BW-6F4229AA,1BHK,580,51.3,Bangalore — HSR Layout,available,2027-02-04
+BuildWise Lakeview,Tower C,BW-CAFECFCF,2BHK,960,70.9,Bangalore — Sarjapur,sold_out,2028-09-23
+BuildWise Greens,Tower A,BW-A2071053,4BHK,2240,147.9,Bangalore — Sarjapur,sold_out,2027-06-30
+BuildWise Heights,Tower C,BW-32CD36EC,2BHK,1130,89.4,Bangalore — HSR Layout,waitlist,2027-12-16
+BuildWise Meridian,Tower A,BW-9A582CFE,1BHK,590,42.2,Bangalore — Whitefield,sold_out,2028-03-31
+BuildWise Greens,Tower B,BW-8ADCD442,2BHK,990,85.6,Bangalore — Hebbal,available,2027-09-28
+BuildWise Heights,Tower F,BW-B98A1FAA,3BHK,1310,107.4,Bangalore — Electronic City,waitlist,2027-09-17
+BuildWise Heights,Tower B,BW-9A57BD79,2BHK,1180,60.9,Bangalore — Electronic City,sold_out,2027-11-16
+BuildWise Heights,Tower F,BW-655C4F30,4BHK,2040,193.7,Bangalore — HSR Layout,available,2027-03-02
+BuildWise Heights,Tower D,BW-A5535E8D,4BHK,1950,169.5,Bangalore — Whitefield,limited,2028-01-04
+BuildWise Heights,Tower F,BW-6858935D,2BHK,1020,76.8,Bangalore — Whitefield,available,2027-08-22
+BuildWise Lakeview,Tower F,BW-420FFD3E,3BHK,1500,116.6,Bangalore — Sarjapur,blocked,2028-08-15
+BuildWise Skyline,Tower A,BW-EDBDD109,3BHK,1360,126.8,Bangalore — Whitefield,sold_out,2028-05-06
+BuildWise Urbania,Tower E,BW-CB3F9BC1,1BHK,660,57.2,Bangalore — Whitefield,waitlist,2028-10-05
+BuildWise Heights,Tower E,BW-B8D00053,1BHK,630,53.4,Bangalore — Hebbal,available,2026-11-04
+BuildWise Greens,Tower D,BW-8D712671,2BHK,1200,82.4,Bangalore — Sarjapur,blocked,2028-07-31
+BuildWise Meridian,Tower A,BW-0640C63F,3BHK,1440,124.2,Bangalore — HSR Layout,waitlist,2028-02-21
+BuildWise Skyline,Tower F,BW-DA863BF4,3BHK,1600,106.1,Bangalore — Hebbal,waitlist,2027-01-28
+BuildWise Skyline,Tower E,BW-2974B7BD,2BHK,1020,98.7,Bangalore — Indiranagar,sold_out,2028-04-03
+BuildWise Lakeview,Tower D,BW-8E2E7170,3BHK,1630,98.2,Bangalore — Electronic City,waitlist,2028-07-21
+BuildWise Lakeview,Tower B,BW-0A762298,4BHK,2300,181.4,Bangalore — HSR Layout,available,2028-10-12
+BuildWise Meridian,Tower F,BW-31BBEF4F,3BHK,1640,125.1,Bangalore — Indiranagar,limited,2027-08-29
+BuildWise Heights,Tower B,BW-7838885C,3BHK,1260,96.6,Bangalore — Electronic City,waitlist,2026-11-06
+BuildWise Meridian,Tower D,BW-CA2DB2D1,1BHK,730,53.6,Bangalore — Hebbal,waitlist,2027-04-07
+BuildWise Heights,Tower B,BW-97B09831,4BHK,1700,172.0,Bangalore — Hebbal,available,2028-10-27
+BuildWise Meridian,Tower B,BW-E88574F4,4BHK,2360,140.3,Bangalore — Electronic City,limited,2028-01-08
+BuildWise Urbania,Tower B,BW-01F7FA6D,1BHK,710,51.2,Bangalore — Hebbal,waitlist,2028-04-14
+BuildWise Heights,Tower D,BW-07FFF184,4BHK,2300,190.9,Bangalore — Indiranagar,limited,2027-12-24
+BuildWise Meridian,Tower D,BW-6DEB3E5B,3BHK,1400,132.0,Bangalore — Indiranagar,sold_out,2027-06-28
+BuildWise Skyline,Tower C,BW-02E77508,2BHK,1180,65.6,Bangalore — Sarjapur,limited,2028-03-26
+BuildWise Heights,Tower F,BW-DA453E26,2BHK,1120,68.9,Bangalore — Hebbal,waitlist,2027-04-27
+BuildWise Urbania,Tower D,BW-421AB85A,3BHK,1280,139.9,Bangalore — Indiranagar,waitlist,2027-04-19
+BuildWise Urbania,Tower D,BW-0E606926,1BHK,550,54.2,Bangalore — Indiranagar,waitlist,2027-09-15
+BuildWise Meridian,Tower F,BW-0571900F,4BHK,2390,203.7,Bangalore — Indiranagar,waitlist,2028-05-29
+BuildWise Urbania,Tower D,BW-1CB7B078,2BHK,900,70.7,Bangalore — Sarjapur,waitlist,2027-10-23
+BuildWise Lakeview,Tower B,BW-A781EFF2,2BHK,1070,85.7,Bangalore — Hebbal,blocked,2026-10-17
+BuildWise Urbania,Tower F,BW-556E4631,1BHK,590,45.1,Bangalore — Whitefield,sold_out,2028-01-05
+BuildWise Urbania,Tower B,BW-0AF376EB,4BHK,2110,162.2,Bangalore — Sarjapur,waitlist,2027-08-31
+BuildWise Greens,Tower C,BW-E21A553C,3BHK,1550,117.2,Bangalore — Hebbal,available,2026-10-09
+BuildWise Greens,Tower F,BW-FE9F5939,3BHK,1270,92.4,Bangalore — Electronic City,limited,2028-10-31
+BuildWise Heights,Tower E,BW-E67C829E,2BHK,970,80.7,Bangalore — Whitefield,available,2027-01-27
+BuildWise Skyline,Tower F,BW-F83D2412,2BHK,1140,71.0,Bangalore — Hebbal,blocked,2027-10-02
+BuildWise Greens,Tower C,BW-0C3F0F9B,1BHK,730,53.3,Bangalore — Electronic City,blocked,2026-10-16
+BuildWise Heights,Tower F,BW-FDAAEF81,4BHK,1790,168.6,Bangalore — Hebbal,limited,2028-05-18
+BuildWise Meridian,Tower C,BW-972582F4,1BHK,740,61.9,Bangalore — HSR Layout,blocked,2027-01-21
+BuildWise Urbania,Tower E,BW-F13B8ACA,1BHK,660,47.1,Bangalore — Sarjapur,sold_out,2026-11-29
+BuildWise Greens,Tower D,BW-6650EA47,1BHK,680,52.0,Bangalore — Hebbal,waitlist,2027-09-25
+BuildWise Meridian,Tower B,BW-DF8A66C3,2BHK,1060,73.0,Bangalore — Hebbal,blocked,2028-07-17
+BuildWise Meridian,Tower D,BW-7CB42351,4BHK,2040,171.8,Bangalore — Hebbal,available,2027-08-16
+BuildWise Urbania,Tower B,BW-E142A19A,3BHK,1610,115.6,Bangalore — Hebbal,sold_out,2028-06-05
+BuildWise Heights,Tower C,BW-1444110C,1BHK,700,46.3,Bangalore — Hebbal,sold_out,2027-04-25
+BuildWise Meridian,Tower E,BW-E59944C6,3BHK,1420,97.2,Bangalore — Sarjapur,limited,2028-04-11
+BuildWise Urbania,Tower F,BW-52D59231,1BHK,700,49.9,Bangalore — Electronic City,waitlist,2028-04-10
+BuildWise Greens,Tower A,BW-21D2C81F,4BHK,2070,162.8,Bangalore — Hebbal,limited,2027-05-04
+BuildWise Skyline,Tower E,BW-0084F1C7,3BHK,1550,128.6,Bangalore — HSR Layout,waitlist,2028-04-08
+BuildWise Urbania,Tower F,BW-77A9A2D5,3BHK,1420,102.0,Bangalore — Sarjapur,available,2027-07-30
+BuildWise Meridian,Tower A,BW-D0EB926E,2BHK,1070,77.8,Bangalore — Sarjapur,limited,2028-11-08
+BuildWise Skyline,Tower D,BW-E50B2E33,2BHK,1130,97.9,Bangalore — HSR Layout,blocked,2028-05-15
+BuildWise Skyline,Tower B,BW-325C4453,3BHK,1390,111.1,Bangalore — Whitefield,available,2027-09-24
+BuildWise Greens,Tower A,BW-C9F1E7B2,2BHK,1070,77.9,Bangalore — Sarjapur,limited,2027-07-16
+BuildWise Lakeview,Tower A,BW-AA12598B,4BHK,2060,172.1,Bangalore — Whitefield,sold_out,2028-01-13
+BuildWise Urbania,Tower C,BW-FAC92001,2BHK,930,79.2,Bangalore — Whitefield,available,2026-11-25
+BuildWise Lakeview,Tower B,BW-C08C8737,1BHK,640,54.6,Bangalore — Electronic City,available,2026-12-16
+BuildWise Lakeview,Tower E,BW-F6101EAD,4BHK,1980,193.4,Bangalore — Indiranagar,waitlist,2028-03-08
+BuildWise Skyline,Tower D,BW-9B30510A,3BHK,1610,124.5,Bangalore — Indiranagar,available,2028-06-16
+BuildWise Skyline,Tower B,BW-525F0B8D,2BHK,1110,81.5,Bangalore — HSR Layout,limited,2026-12-12
+BuildWise Urbania,Tower A,BW-C90C93A9,1BHK,690,46.6,Bangalore — Electronic City,sold_out,2028-08-25
+BuildWise Meridian,Tower C,BW-70130E8A,1BHK,640,51.9,Bangalore — Electronic City,available,2028-09-08
+BuildWise Lakeview,Tower F,BW-FDB785FC,2BHK,1110,72.5,Bangalore — Sarjapur,blocked,2027-04-10
+BuildWise Skyline,Tower B,BW-F1E35F5B,2BHK,1160,79.8,Bangalore — HSR Layout,limited,2027-02-12
+BuildWise Lakeview,Tower F,BW-45FDB9D7,3BHK,1430,125.7,Bangalore — Indiranagar,sold_out,2027-12-13
+BuildWise Lakeview,Tower E,BW-D311B5AD,4BHK,2330,148.6,Bangalore — Sarjapur,available,2027-12-12
+BuildWise Lakeview,Tower C,BW-3ABAB30A,4BHK,2020,179.8,Bangalore — HSR Layout,blocked,2026-10-16
+BuildWise Lakeview,Tower C,BW-20A3196E,1BHK,560,49.5,Bangalore — HSR Layout,blocked,2028-11-02
+BuildWise Lakeview,Tower B,BW-54B416AB,4BHK,2250,163.3,Bangalore — Sarjapur,available,2028-07-01
+BuildWise Skyline,Tower D,BW-6D01C049,4BHK,2110,149.1,Bangalore — Sarjapur,limited,2028-08-06
+BuildWise Urbania,Tower F,BW-67B934B8,3BHK,1430,121.2,Bangalore — Hebbal,blocked,2028-07-29
+BuildWise Skyline,Tower A,BW-E05C374B,1BHK,630,41.6,Bangalore — Hebbal,waitlist,2027-08-17
+BuildWise Urbania,Tower E,BW-D8B397C5,1BHK,680,49.8,Bangalore — HSR Layout,sold_out,2026-11-14
+BuildWise Greens,Tower D,BW-A869F4FB,4BHK,1960,189.0,Bangalore — HSR Layout,sold_out,2027-06-20
+BuildWise Greens,Tower D,BW-9074CA4F,4BHK,1730,190.2,Bangalore — HSR Layout,limited,2028-06-26
+BuildWise Greens,Tower E,BW-AFEBA787,2BHK,1070,65.9,Bangalore — Sarjapur,available,2027-11-11
+BuildWise Heights,Tower F,BW-399FAB76,4BHK,2330,168.3,Bangalore — Whitefield,sold_out,2028-09-22
+BuildWise Heights,Tower D,BW-55769223,4BHK,2280,157.6,Bangalore — Hebbal,limited,2028-04-06
+BuildWise Urbania,Tower C,BW-56DF1AF4,2BHK,1000,76.5,Bangalore — Whitefield,available,2028-02-21
+BuildWise Lakeview,Tower C,BW-2EDE296F,3BHK,1620,127.8,Bangalore — HSR Layout,limited,2028-07-26
+BuildWise Skyline,Tower D,BW-5871AC0D,4BHK,2120,201.0,Bangalore — Indiranagar,waitlist,2028-04-07
+BuildWise Meridian,Tower B,BW-376929B6,4BHK,2000,154.7,Bangalore — Sarjapur,waitlist,2028-04-27
+BuildWise Urbania,Tower F,BW-D190CA2C,1BHK,670,56.8,Bangalore — Sarjapur,limited,2027-10-20
+BuildWise Lakeview,Tower B,BW-3B00162B,4BHK,2120,180.0,Bangalore — Whitefield,waitlist,2026-12-31
+BuildWise Greens,Tower D,BW-CDBB7259,1BHK,590,65.7,Bangalore — Indiranagar,limited,2027-11-13
+BuildWise Skyline,Tower C,BW-34B98430,1BHK,740,47.2,Bangalore — Hebbal,available,2028-08-29
+BuildWise Urbania,Tower E,BW-5A0187F4,3BHK,1450,132.4,Bangalore — HSR Layout,waitlist,2028-06-22
+BuildWise Heights,Tower A,BW-D50EFACE,1BHK,750,66.7,Bangalore — Indiranagar,limited,2028-08-20
+BuildWise Meridian,Tower A,BW-6BB82096,1BHK,580,42.6,Bangalore — Hebbal,sold_out,2027-12-18
+BuildWise Greens,Tower C,BW-199C8A82,1BHK,640,49.0,Bangalore — Whitefield,limited,2027-09-22
+BuildWise Lakeview,Tower D,BW-9B172FE1,2BHK,1110,85.4,Bangalore — Indiranagar,available,2027-03-23
+BuildWise Heights,Tower F,BW-84A66F90,4BHK,2330,188.6,Bangalore — Indiranagar,waitlist,2028-05-09
+BuildWise Meridian,Tower C,BW-6D2DA69A,3BHK,1250,120.3,Bangalore — Hebbal,blocked,2028-01-09
+BuildWise Skyline,Tower D,BW-0E2AF4DE,2BHK,1080,84.0,Bangalore — Whitefield,waitlist,2027-07-23
+BuildWise Heights,Tower C,BW-78A4287A,3BHK,1490,104.4,Bangalore — Hebbal,waitlist,2028-01-27
+BuildWise Meridian,Tower C,BW-349E0288,3BHK,1430,142.8,Bangalore — Indiranagar,waitlist,2026-10-12
+BuildWise Meridian,Tower E,BW-0F36CA74,3BHK,1280,122.4,Bangalore — Whitefield,sold_out,2028-06-01
+BuildWise Heights,Tower C,BW-2C1301FA,2BHK,1100,94.4,Bangalore — Indiranagar,limited,2027-04-02
+BuildWise Greens,Tower F,BW-C76E9545,1BHK,640,46.7,Bangalore — HSR Layout,sold_out,2027-12-15
+BuildWise Skyline,Tower C,BW-D168032E,2BHK,1130,74.7,Bangalore — Whitefield,limited,2027-11-19
+BuildWise Skyline,Tower E,BW-6B384507,3BHK,1350,141.5,Bangalore — Indiranagar,waitlist,2027-06-10
+BuildWise Greens,Tower C,BW-A740D771,3BHK,1540,120.8,Bangalore — HSR Layout,limited,2026-12-06
+BuildWise Greens,Tower C,BW-2927EFFC,4BHK,2200,191.0,Bangalore — Indiranagar,available,2026-10-04
+BuildWise Meridian,Tower F,BW-2680F6B5,4BHK,2030,154.6,Bangalore — Sarjapur,sold_out,2028-05-10
+BuildWise Urbania,Tower B,BW-A3E86364,1BHK,550,63.7,Bangalore — HSR Layout,blocked,2028-06-15
+BuildWise Meridian,Tower B,BW-E8E6B288,3BHK,1290,139.7,Bangalore — Indiranagar,sold_out,2028-07-01
+BuildWise Greens,Tower B,BW-81CDA677,4BHK,1740,182.4,Bangalore — Whitefield,available,2027-07-28
+BuildWise Heights,Tower E,BW-113F4620,1BHK,670,42.2,Bangalore — Electronic City,blocked,2027-12-28
+BuildWise Meridian,Tower F,BW-FBFA9AA8,4BHK,1890,198.8,Bangalore — Indiranagar,waitlist,2027-11-18
+BuildWise Meridian,Tower A,BW-3078C67D,4BHK,2170,155.9,Bangalore — Sarjapur,limited,2027-04-30
+BuildWise Skyline,Tower F,BW-F12C502E,3BHK,1590,114.7,Bangalore — Whitefield,waitlist,2028-07-11
+BuildWise Urbania,Tower A,BW-4A72C7CF,3BHK,1300,96.0,Bangalore — Electronic City,blocked,2028-07-29
+BuildWise Heights,Tower C,BW-AA1C8052,1BHK,590,45.6,Bangalore — Whitefield,blocked,2028-04-20
+BuildWise Heights,Tower B,BW-FBE76F54,2BHK,1000,97.8,Bangalore — Indiranagar,blocked,2027-02-18
+BuildWise Heights,Tower B,BW-01C0C68D,1BHK,720,53.0,Bangalore — Sarjapur,available,2027-06-03
+BuildWise Skyline,Tower A,BW-98C988D7,1BHK,620,41.2,Bangalore — Electronic City,limited,2028-05-14
+BuildWise Meridian,Tower B,BW-C839FF8F,3BHK,1510,109.8,Bangalore — Whitefield,available,2028-03-11
+BuildWise Lakeview,Tower C,BW-9F13E1E7,4BHK,1830,164.8,Bangalore — Hebbal,blocked,2027-12-26
+BuildWise Lakeview,Tower F,BW-58695F79,1BHK,640,58.9,Bangalore — HSR Layout,available,2028-01-02
+BuildWise Urbania,Tower D,BW-1F6B8E24,1BHK,580,53.5,Bangalore — Hebbal,waitlist,2028-02-04
+BuildWise Lakeview,Tower C,BW-050F9F57,1BHK,590,44.0,Bangalore — Whitefield,blocked,2026-11-26
+BuildWise Lakeview,Tower E,BW-61733DF2,3BHK,1430,112.4,Bangalore — Hebbal,waitlist,2027-12-28
+BuildWise Meridian,Tower A,BW-51B82E7C,1BHK,750,60.4,Bangalore — HSR Layout,limited,2028-04-06
+BuildWise Urbania,Tower B,BW-CA7201C4,4BHK,2130,162.7,Bangalore — Hebbal,available,2027-12-28
+BuildWise Meridian,Tower C,BW-FF28BD92,3BHK,1410,121.3,Bangalore — Hebbal,waitlist,2027-10-08
+BuildWise Greens,Tower A,BW-B7BCB31B,1BHK,680,56.4,Bangalore — Whitefield,sold_out,2026-12-27
+BuildWise Lakeview,Tower A,BW-E2BE9B60,2BHK,1200,93.2,Bangalore — Indiranagar,available,2028-04-17
+BuildWise Urbania,Tower F,BW-E142AF7E,4BHK,1760,159.0,Bangalore — Sarjapur,sold_out,2027-07-11
+BuildWise Heights,Tower E,BW-006EEDAC,1BHK,590,57.9,Bangalore — Indiranagar,available,2028-07-23
+BuildWise Greens,Tower C,BW-FE091FD5,3BHK,1420,127.8,Bangalore — Indiranagar,waitlist,2028-04-29
+BuildWise Meridian,Tower F,BW-58D632E7,1BHK,630,51.9,Bangalore — Indiranagar,sold_out,2026-10-19
+BuildWise Heights,Tower A,BW-DEAAF9FE,3BHK,1340,110.1,Bangalore — Sarjapur,available,2028-04-21
+BuildWise Greens,Tower F,BW-E51C5729,2BHK,920,89.0,Bangalore — HSR Layout,waitlist,2028-10-23
+BuildWise Heights,Tower C,BW-C7AF0849,4BHK,2170,169.2,Bangalore — Hebbal,blocked,2027-08-05
+BuildWise Heights,Tower B,BW-B15C2ADF,1BHK,740,55.0,Bangalore — Whitefield,sold_out,2026-11-09
+BuildWise Urbania,Tower D,BW-112226A0,4BHK,2260,183.5,Bangalore — HSR Layout,blocked,2027-11-18
+BuildWise Greens,Tower D,BW-3E688EAF,1BHK,640,50.6,Bangalore — Sarjapur,waitlist,2028-08-14
+BuildWise Urbania,Tower B,BW-AF13C08C,3BHK,1630,107.7,Bangalore — Whitefield,sold_out,2026-11-15
+BuildWise Skyline,Tower C,BW-A70BA29D,2BHK,1000,60.6,Bangalore — Electronic City,waitlist,2027-01-20
+BuildWise Lakeview,Tower D,BW-84710028,2BHK,1120,70.4,Bangalore — Electronic City,sold_out,2027-05-13
+BuildWise Greens,Tower F,BW-454032DD,1BHK,680,48.4,Bangalore — Hebbal,available,2026-10-09
+BuildWise Lakeview,Tower D,BW-13929228,3BHK,1500,136.1,Bangalore — Indiranagar,sold_out,2028-09-15
+BuildWise Skyline,Tower A,BW-A2318F7C,1BHK,600,48.5,Bangalore — Hebbal,sold_out,2028-06-13
+BuildWise Heights,Tower A,BW-5C058226,1BHK,680,47.3,Bangalore — Hebbal,available,2028-05-15
+BuildWise Skyline,Tower F,BW-69F53750,4BHK,1980,162.6,Bangalore — Sarjapur,available,2027-08-27
+BuildWise Heights,Tower E,BW-F26A35FD,1BHK,660,62.8,Bangalore — Indiranagar,limited,2027-09-14
+BuildWise Skyline,Tower B,BW-FC4E09D9,2BHK,960,83.2,Bangalore — Whitefield,available,2027-03-16
+BuildWise Urbania,Tower D,BW-6DA3578C,2BHK,1140,93.6,Bangalore — HSR Layout,waitlist,2028-04-19
+BuildWise Heights,Tower C,BW-E44727F2,3BHK,1530,127.4,Bangalore — HSR Layout,sold_out,2026-11-28
+BuildWise Skyline,Tower A,BW-770A2AF6,3BHK,1570,129.5,Bangalore — Indiranagar,waitlist,2026-12-04
+BuildWise Skyline,Tower C,BW-1E6058DC,1BHK,570,58.8,Bangalore — Whitefield,available,2028-07-11

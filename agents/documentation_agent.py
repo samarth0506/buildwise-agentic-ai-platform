@@ -6,6 +6,10 @@ No APIs or ML. Covers KYC, booking, registration, loans, receipts, and handover.
 
 from __future__ import annotations
 
+from agents.response_agent import apply_llm_to_agent_result
+
+AGENT_DISPLAY_NAME = "Documentation Agent"
+
 # ---------------------------------------------------------------------------
 # Hardcoded FAQ entries (expand or move to data/ files later)
 # ---------------------------------------------------------------------------
@@ -240,37 +244,49 @@ def handle_documentation_query(query: str) -> dict:
         dict with intent, response, confidence, risk_flags, sources
     """
     if not query or not query.strip():
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_all_topics(),
-            "confidence": 0.5,
-            "risk_flags": [],
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query or "",
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_all_topics(),
+                "confidence": 0.5,
+                "risk_flags": [],
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     topics = _detect_topics(query)
 
     if not topics:
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_all_topics(),
-            "confidence": _compute_confidence([]),
-            "risk_flags": _build_risk_flags([], query),
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query,
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_all_topics(),
+                "confidence": _compute_confidence([]),
+                "risk_flags": _build_risk_flags([], query),
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
-    return {
-        "intent": INTENT_LABEL,
-        "response": _build_response(query, topics),
-        "confidence": _compute_confidence(topics),
-        "risk_flags": _build_risk_flags(topics, query),
-        "sources": [SOURCE_LABEL],
-    }
+    return apply_llm_to_agent_result(
+        query,
+        {
+            "intent": INTENT_LABEL,
+            "response": _build_response(query, topics),
+            "confidence": _compute_confidence(topics),
+            "risk_flags": _build_risk_flags(topics, query),
+            "sources": [SOURCE_LABEL],
+        },
+        AGENT_DISPLAY_NAME,
+    )
 
 
 if __name__ == "__main__":
     test_queries = [
-        "What KYC documents do I need to submit?",
+        "image.png",
         "How do I complete the booking form?",
         "Agreement registration and stamp duty process",
         "Home loan documents for bank sanction",

@@ -6,6 +6,10 @@ No APIs or ML. Detects angry, legal, payment, refund, safety, and urgent cases.
 
 from __future__ import annotations
 
+from agents.response_agent import apply_llm_to_agent_result
+
+AGENT_DISPLAY_NAME = "Escalation Agent"
+
 # ---------------------------------------------------------------------------
 # Escalation case playbooks
 # ---------------------------------------------------------------------------
@@ -257,18 +261,22 @@ def handle_escalation_query(query: str) -> dict:
         escalation_department, suggested_action, sources
     """
     if not query or not query.strip():
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_case_types(),
-            "confidence": 0.5,
-            "priority": "high",
-            "risk_flags": ["unspecified_escalation"],
-            "escalation_department": "Customer Relations (triage)",
-            "suggested_action": (
-                "Request customer ID and unit; assign to Customer Relations queue."
-            ),
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query or "",
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_case_types(),
+                "confidence": 0.5,
+                "priority": "high",
+                "risk_flags": ["unspecified_escalation"],
+                "escalation_department": "Customer Relations (triage)",
+                "suggested_action": (
+                    "Request customer ID and unit; assign to Customer Relations queue."
+                ),
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     case_types = _detect_case_types(query)
     priority = _resolve_priority(case_types, query)
@@ -277,18 +285,22 @@ def handle_escalation_query(query: str) -> dict:
     risk_flags = _collect_risk_flags(case_types, priority)
     confidence = _compute_confidence(case_types)
 
-    return {
-        "intent": INTENT_LABEL,
-        "response": _build_response(
-            query, case_types, priority, department, suggested_action
-        ),
-        "confidence": confidence,
-        "priority": priority,
-        "risk_flags": risk_flags,
-        "escalation_department": department,
-        "suggested_action": suggested_action,
-        "sources": [SOURCE_LABEL],
-    }
+    return apply_llm_to_agent_result(
+        query,
+        {
+            "intent": INTENT_LABEL,
+            "response": _build_response(
+                query, case_types, priority, department, suggested_action
+            ),
+            "confidence": confidence,
+            "priority": priority,
+            "risk_flags": risk_flags,
+            "escalation_department": department,
+            "suggested_action": suggested_action,
+            "sources": [SOURCE_LABEL],
+        },
+        AGENT_DISPLAY_NAME,
+    )
 
 
 if __name__ == "__main__":
