@@ -6,6 +6,10 @@ No APIs or ML. Later you can move MOCK_LISTINGS to data/listings.csv (Prompt 17)
 
 from __future__ import annotations
 
+from agents.response_agent import apply_llm_to_agent_result
+
+AGENT_DISPLAY_NAME = "Property Agent"
+
 # ---------------------------------------------------------------------------
 # Mock property listings
 # ---------------------------------------------------------------------------
@@ -252,13 +256,17 @@ def handle_property_query(query: str) -> dict:
         dict with keys: intent, response, confidence, risk_flags, sources
     """
     if not query or not query.strip():
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_all_listings(),
-            "confidence": 0.5,
-            "risk_flags": [],
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query or "",
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_all_listings(),
+                "confidence": 0.5,
+                "risk_flags": [],
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     bhk = _detect_bhk(query)
     location = _detect_location(query)
@@ -268,24 +276,32 @@ def handle_property_query(query: str) -> dict:
 
     # No filters detected — show overview with moderate confidence
     if not bhk and not location and budget is None:
-        return {
-            "intent": INTENT_LABEL,
-            "response": _summarize_all_listings(),
-            "confidence": 0.78,
-            "risk_flags": [],
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query,
+            {
+                "intent": INTENT_LABEL,
+                "response": _summarize_all_listings(),
+                "confidence": 0.78,
+                "risk_flags": [],
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     risk_flags = _build_risk_flags(listings, query)
     confidence = _compute_confidence(listings, query)
 
-    return {
-        "intent": INTENT_LABEL,
-        "response": _build_response(query, listings),
-        "confidence": confidence,
-        "risk_flags": risk_flags,
-        "sources": [SOURCE_LABEL],
-    }
+    return apply_llm_to_agent_result(
+        query,
+        {
+            "intent": INTENT_LABEL,
+            "response": _build_response(query, listings),
+            "confidence": confidence,
+            "risk_flags": risk_flags,
+            "sources": [SOURCE_LABEL],
+        },
+        AGENT_DISPLAY_NAME,
+    )
 
 
 if __name__ == "__main__":

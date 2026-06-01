@@ -7,9 +7,17 @@ Run with:
 
 from __future__ import annotations
 
+import logging
 import os
 
 import streamlit as st
+
+# Show [LLM] / [ResponseAgent] lines in the Streamlit terminal
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    force=True,
+)
 
 from ui import show_chat, show_dashboard, show_review_queue
 from ui.theme import inject_global_css, render_sidebar_nav

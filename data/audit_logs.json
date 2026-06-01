@@ -194,5 +194,429 @@
     "sources": [
       "mock_construction_data"
     ]
+  },
+  {
+    "log_id": "LOG-F6CF13E2",
+    "timestamp": "2026-05-26T06:05:12+00:00",
+    "query": "show all the tower status",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-0EC21873",
+    "timestamp": "2026-05-26T06:05:42+00:00",
+    "query": "why the tower B is delayed>",
+    "intent": "construction_status",
+    "response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "approved",
+    "ticket_id": null,
+    "review_id": "REV-14E1EED5",
+    "sources": [
+      "mock_construction_data"
+    ],
+    "event_type": "review_approved"
+  },
+  {
+    "log_id": "LOG-A687082C",
+    "timestamp": "2026-05-26T06:06:47+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "approved",
+    "ticket_id": null,
+    "review_id": "REV-1FDB8F1E",
+    "sources": [
+      "mock_construction_data"
+    ],
+    "event_type": "review_approved"
+  },
+  {
+    "log_id": "LOG-7911E33A",
+    "timestamp": "2026-05-26T08:09:15+00:00",
+    "query": "show all the tower status",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-B6A6CBDE",
+    "timestamp": "2026-06-01T12:02:58+00:00",
+    "query": "Why is Tower B delayed?",
+    "intent": "construction_status",
+    "response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": "TKT-033774AA",
+    "review_id": "REV-17A2D37B",
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-E8F2528A",
+    "timestamp": "2026-06-01T12:02:58+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "response": "**BuildWise — documentation support**\n\n**KYC documents**\nFor KYC you typically need: government photo ID (Aadhaar/passport), PAN card, passport-size photos, and address proof.\n\n**Steps:**\n1. Submit copies at the BuildWise sales office or secure upload portal.\n2. Verification usually takes 2–3 business days.\n3. You will receive email confirmation once KYC is approved.\n\n**Typical timeline:** 2–3 business days after complete submission\n**Contact:** documentation@buildwise.example\n\n**Next step:** Gather the listed documents and contact the team email above. Final requirements may vary by unit and bank — our team will confirm.",
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": null,
+    "review_id": "REV-EC51A78D",
+    "sources": [
+      "mock_documentation_faq"
+    ]
+  },
+  {
+    "log_id": "LOG-DBCE5A32",
+    "timestamp": "2026-06-01T12:02:59+00:00",
+    "query": "Water leakage in apartment 1203",
+    "intent": "maintenance_issue",
+    "response": "**BuildWise — maintenance request**\n\nPriority: **HIGH**\nSuggested team: **Plumbing & Sanitary**\n\n**Plumbing** (priority: high)\nWater leaks and drainage issues are logged for the plumbing team. Please turn off local water supply if safe to do so.\n\n**What to do:**\n1. Note the location (tower, floor, unit) and when the issue started.\n2. Share photos if available via the resident portal.\n3. Avoid using affected fixtures until the team confirms it is safe.\n\n**Expected SLA:** Response within 24 hours; emergency leaks prioritized same day\n**Assigned team:** Plumbing & Sanitary\n\n**Next step:** Your request will be logged for the team above. You may receive a callback to confirm unit details. Resolution times depend on site access and parts availability.",
+    "confidence": 0.84,
+    "risk_flags": [
+      "maintenance_urgent"
+    ],
+    "risk_level": "medium",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": "TKT-BA8C14A1",
+    "review_id": "REV-3AA2097F",
+    "sources": [
+      "mock_maintenance_playbook"
+    ]
+  },
+  {
+    "log_id": "LOG-4E17CFA2",
+    "timestamp": "2026-06-01T12:02:59+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "**BuildWise — property information**\n\nWe found 2 matching option(s):\n\n- 2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026\n  Note: Mid-floor units with clubhouse access.\n- 2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027\n  Note: Corner units with park view.\n\n**Budget range (matching):** ₹68L – ₹82L\n\n**Next step:** Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-7DD0432B",
+    "timestamp": "2026-06-01T12:03:51+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "**BuildWise — property information**\n\nWe found 2 matching option(s):\n\n- 2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026\n  Note: Mid-floor units with clubhouse access.\n- 2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027\n  Note: Corner units with park view.\n\n**Budget range (matching):** ₹68L – ₹82L\n\n**Next step:** Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-1B21FD5B",
+    "timestamp": "2026-06-01T12:03:51+00:00",
+    "query": "I am angry about my payment dispute",
+    "intent": "escalation",
+    "response": "**BuildWise — escalation acknowledgment**\n\nThank you for raising this with us. Sensitive matters are reviewed by specialist teams — we cannot resolve legal, refund, or safety outcomes in this chat alone.\n\n**Priority:** CRITICAL\n**Escalation department:** Customer Relations / Legal & Compliance / Accounts & Billing\n\n**Angry customer / service complaint**\nWe understand you are unhappy with your experience. Your message has been escalated to our Customer Relations team.\n\n**Legal issue**\nMatters involving legal proceedings require review by our Legal & Compliance team. We will not discuss case merits in this channel.\n\n**Payment dispute**\nPayment disputes are reviewed by Accounts & Billing with finance oversight.\n\n**Suggested internal action:** (1) Assign a senior relationship manager to call back within 4 business hours. Acknowledge concerns without admitting liability. (2) Route to Legal & Compliance; do not provide legal advice in chat. Request written notice details and unit reference. (3) Freeze disputed line items pending audit; share transaction ID and receipt copies.\n\n**Next step for you:** A team member will contact you using your registered details. Please avoid sharing passwords or full bank account numbers in chat.\n\n*This message is an acknowledgment only — not a final decision on refunds, legal outcomes, or safety investigations.*",
+    "confidence": 0.75,
+    "risk_flags": [
+      "angry_customer",
+      "legal_issue",
+      "payment_dispute",
+      "escalation_required"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": "TKT-4E98DF7B",
+    "review_id": "REV-487B4A53",
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  },
+  {
+    "log_id": "LOG-32DCFDDC",
+    "timestamp": "2026-06-01T12:11:40+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-820CF2FC",
+    "timestamp": "2026-06-01T12:12:10+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "**BuildWise — property information**\n\nWe found 2 matching option(s):\n\n- 2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026\n  Note: Mid-floor units with clubhouse access.\n- 2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027\n  Note: Corner units with park view.\n\n**Budget range (matching):** ₹68L – ₹82L\n\n**Next step:** Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-30FF755C",
+    "timestamp": "2026-06-01T12:14:22+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "**BuildWise — property information**\n\nWe found 2 matching option(s):\n\n- 2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026\n  Note: Mid-floor units with clubhouse access.\n- 2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027\n  Note: Corner units with park view.\n\n**Budget range (matching):** ₹68L – ₹82L\n\n**Next step:** Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-133494DD",
+    "timestamp": "2026-06-01T12:14:53+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "response": "**BuildWise — documentation support**\n\n**KYC documents**\nFor KYC you typically need: government photo ID (Aadhaar/passport), PAN card, passport-size photos, and address proof.\n\n**Steps:**\n1. Submit copies at the BuildWise sales office or secure upload portal.\n2. Verification usually takes 2–3 business days.\n3. You will receive email confirmation once KYC is approved.\n\n**Typical timeline:** 2–3 business days after complete submission\n**Contact:** documentation@buildwise.example\n\n**Next step:** Gather the listed documents and contact the team email above. Final requirements may vary by unit and bank — our team will confirm.",
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": null,
+    "review_id": "REV-A95BB73E",
+    "sources": [
+      "mock_documentation_faq"
+    ]
+  },
+  {
+    "log_id": "LOG-9F18B307",
+    "timestamp": "2026-06-01T12:17:12+00:00",
+    "query": "Thank you for contacting BuildWise.\n\nBuildWise — property information\n\nWe found 2 matching option(s):\n\n2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026 Note: Mid-floor units with clubhouse access.\n2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027 Note: Corner units with park view.\nBudget range (matching): ₹68L – ₹82L\n\nNext step: Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.\n\nOur current confidence in this answer is 82% (category: property inquiry).\n\nNext step: If you need more detail, reply with your tower name or ask a follow-up question. For urgent safety or legal matters, contact BuildWise support directly.\n\nPlease note: timelines and completion figures are based on available project data and may change after site verification.",
+    "intent": "escalation",
+    "response": "**BuildWise — escalation acknowledgment**\n\nThank you for raising this with us. Sensitive matters are reviewed by specialist teams — we cannot resolve legal, refund, or safety outcomes in this chat alone.\n\n**Priority:** CRITICAL\n**Escalation department:** Legal & Compliance / Safety & Security / Operations Command Desk\n\n**Legal issue**\nMatters involving legal proceedings require review by our Legal & Compliance team. We will not discuss case merits in this channel.\n\n**Safety concern**\nSafety concerns are treated as highest priority. Please ensure you are in a safe location.\n\n**Urgent complaint**\nYour request has been flagged as urgent and sent to our Operations Command Desk.\n\n**Suggested internal action:** (1) Route to Legal & Compliance; do not provide legal advice in chat. Request written notice details and unit reference. (2) If there is immediate danger, contact local emergency services first. Notify on-site security and log critical incident ticket. (3) Open priority ticket; operations desk to acknowledge within 2 hours during business hours.\n\n**Next step for you:** A team member will contact you using your registered details. Please avoid sharing passwords or full bank account numbers in chat.\n\n*This message is an acknowledgment only — not a final decision on refunds, legal outcomes, or safety investigations.*",
+    "confidence": 0.75,
+    "risk_flags": [
+      "legal_issue",
+      "safety_issue",
+      "maintenance_urgent",
+      "sla_breach_risk",
+      "escalation_required"
+    ],
+    "risk_level": "high",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": "TKT-B798B824",
+    "review_id": "REV-EBEB44B6",
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  },
+  {
+    "log_id": "LOG-1C4AEB04",
+    "timestamp": "2026-06-01T12:24:24+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-5334E5D8",
+    "timestamp": "2026-06-01T12:31:30+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "**BuildWise — all towers overview**\n- Tower A: on_track, 88% complete, risk=low\n- Tower B: delayed, 72% complete, risk=high (material delivery issues)\n- Tower C: on_track, 81% complete, risk=medium\nAsk about a specific tower, e.g. 'Why is Tower B delayed?'",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-6463C25F",
+    "timestamp": "2026-06-01T12:35:23+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "Here is the current status of all towers:\n\n- Tower A: On track, 88% complete, with a low risk.\n- Tower B: Delayed, 72% complete, with a high risk due to material delivery issues.\n- Tower C: On track, 81% complete, with a medium risk.\n\nIf you would like more details about a specific tower, please let me know!",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-FDCD0123",
+    "timestamp": "2026-06-01T12:37:36+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "Here is the status of all the towers:\n\n- Tower A: On track, 88% complete, with a low risk.\n- Tower B: Delayed, 72% complete, with a high risk due to material delivery issues.\n- Tower C: On track, 81% complete, with a medium risk.\n\nIf you would like more details about a specific tower, please let me know!",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-39537261",
+    "timestamp": "2026-06-01T12:43:32+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "We have two 2BHK options available under 90 lakhs:\n\n1. **Hinjewadi, Pune**: Priced at ₹68 lakhs, there are 4 units available with possession expected in December 2026. These are mid-floor units with clubhouse access.\n   \n2. **Baner, Pune**: Priced at ₹82 lakhs, there are 2 limited units available with possession expected in March 2027. These are corner units with a park view.\n\nIf you're interested in either option or need further assistance, please let us know!",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-97FB3645",
+    "timestamp": "2026-06-01T12:46:25+00:00",
+    "query": "show all the tower status?",
+    "intent": "construction_status",
+    "response": "Here is the current status of all towers:\n\n- Tower A: on track, 88% complete, risk level is low.\n- Tower B: delayed, 72% complete, risk level is high due to material delivery issues.\n- Tower C: on track, 81% complete, risk level is medium.\n\nIf you have questions about a specific tower, feel free to ask!",
+    "confidence": 0.75,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "log_id": "LOG-1CF4E306",
+    "timestamp": "2026-06-01T12:50:17+00:00",
+    "query": "Show me 2BHK under 90 lakhs",
+    "intent": "property_inquiry",
+    "response": "We have two 2BHK options available under 90 lakhs:\n\n1. A 2BHK in Hinjewadi, Pune for ₹68 lakhs, with 4 units available and possession expected in December 2026. These are mid-floor units with clubhouse access.\n   \n2. A 2BHK in Baner, Pune for ₹82 lakhs, with 2 limited units available and possession expected in March 2027. These are corner units with a park view.\n\nIf you have a preference or need more information, please let us know!",
+    "confidence": 0.82,
+    "risk_flags": [],
+    "risk_level": "low",
+    "review_required": false,
+    "review_status": "not_required",
+    "ticket_id": null,
+    "review_id": null,
+    "sources": [
+      "mock_property_data"
+    ]
+  },
+  {
+    "log_id": "LOG-834B90B5",
+    "timestamp": "2026-06-01T12:50:35+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "response": "To complete your KYC (Know Your Customer) process, you typically need the following documents: a government photo ID (such as Aadhaar or passport), a PAN card, passport-size photos, and proof of address. \n\nYou can submit copies of these documents at the BuildWise sales office or through the secure upload portal. Verification usually takes 2–3 business days, and you will receive an email confirmation once your KYC is approved. \n\nPlease gather the listed documents and feel free to reach out to our team at documentation@buildwise.example for any specific requirements that may vary by unit and bank.",
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "review_required": true,
+    "review_status": "pending",
+    "ticket_id": null,
+    "review_id": "REV-7C0CC1F5",
+    "sources": [
+      "mock_documentation_faq"
+    ]
   }
 ]

@@ -6,6 +6,10 @@ No APIs or ML models. Later prompts can swap MOCK_TOWERS for CSV/RAG data.
 
 from __future__ import annotations
 
+from agents.response_agent import apply_llm_to_agent_result
+
+AGENT_DISPLAY_NAME = "Construction Agent"
+
 # ---------------------------------------------------------------------------
 # Mock construction data (Prompt 2 / 7 will move this to data/ + RAG later)
 # ---------------------------------------------------------------------------
@@ -177,36 +181,48 @@ def handle_construction_query(query: str) -> dict:
         dict with intent, response, confidence, risk_flags, sources
     """
     if not query or not query.strip():
-        return {
-            "intent": "construction_status",
-            "response": _summarize_all_towers(),
-            "confidence": 0.5,
-            "risk_flags": [],
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query or "",
+            {
+                "intent": "construction_status",
+                "response": _summarize_all_towers(),
+                "confidence": 0.5,
+                "risk_flags": [],
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     tower_name = _detect_tower(query)
 
     if tower_name is None:
-        return {
-            "intent": "construction_status",
-            "response": _summarize_all_towers(),
-            "confidence": 0.75,
-            "risk_flags": _build_risk_flags(query, {"status": "on_track", "risk": "low"}),
-            "sources": [SOURCE_LABEL],
-        }
+        return apply_llm_to_agent_result(
+            query,
+            {
+                "intent": "construction_status",
+                "response": _summarize_all_towers(),
+                "confidence": 0.75,
+                "risk_flags": _build_risk_flags(query, {"status": "on_track", "risk": "low"}),
+                "sources": [SOURCE_LABEL],
+            },
+            AGENT_DISPLAY_NAME,
+        )
 
     tower_data = MOCK_TOWERS[tower_name]
     risk_flags = _build_risk_flags(query, tower_data)
     confidence = _compute_confidence(tower_data, tower_name)
 
-    return {
-        "intent": "construction_status",
-        "response": _build_response(query, tower_name, tower_data),
-        "confidence": confidence,
-        "risk_flags": risk_flags,
-        "sources": [SOURCE_LABEL],
-    }
+    return apply_llm_to_agent_result(
+        query,
+        {
+            "intent": "construction_status",
+            "response": _build_response(query, tower_name, tower_data),
+            "confidence": confidence,
+            "risk_flags": risk_flags,
+            "sources": [SOURCE_LABEL],
+        },
+        AGENT_DISPLAY_NAME,
+    )
 
 
 if __name__ == "__main__":

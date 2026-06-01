@@ -102,7 +102,12 @@ def _display_id(result: dict) -> str:
     return result.get("ticket_id") or result.get("review_id") or "—"
 
 
-def _render_response_cards(result: dict, timestamp: str = "") -> None:
+def _render_response_cards(
+    result: dict,
+    timestamp: str = "",
+    *,
+    element_key: str = "response",
+) -> None:
     """Render polished assistant response with metrics and workflow."""
     _response_chips(result)
 
@@ -129,6 +134,12 @@ def _render_response_cards(result: dict, timestamp: str = "") -> None:
         d2.markdown(f"**Audit log:** `{result.get('audit_log_id') or '—'}`")
         d2.markdown(f"**Review ID:** `{result.get('review_id') or '—'}`")
 
+        if "llm_used" in result:
+            llm_label = "Yes (OpenAI)" if result.get("llm_used") else "No (rule-based fallback)"
+            st.markdown(f"**LLM enhanced:** {llm_label}")
+            if not result.get("llm_used") and result.get("llm_fallback_reason"):
+                st.caption(f"Fallback reason: {result['llm_fallback_reason']}")
+
         if result.get("risk_flags"):
             st.markdown("**Risk flags**")
             for flag in result["risk_flags"]:
@@ -145,6 +156,7 @@ def _render_response_cards(result: dict, timestamp: str = "") -> None:
             file_name="buildwise_response.txt",
             mime="text/plain",
             use_container_width=True,
+            key=f"download_response_{element_key}",
         )
 
     with st.expander("🔄 Agent workflow timeline", expanded=True):
@@ -157,7 +169,7 @@ def _init_state() -> None:
 
 
 def _render_history() -> None:
-    for msg in st.session_state.chat_history:
+    for index, msg in enumerate(st.session_state.chat_history):
         if msg["role"] == "user":
             user_bubble(msg["content"])
             if msg.get("timestamp"):
@@ -167,7 +179,11 @@ def _render_history() -> None:
                 )
         else:
             with st.chat_message("assistant", avatar="🤖"):
-                _render_response_cards(msg["content"], msg.get("timestamp", ""))
+                _render_response_cards(
+                    msg["content"],
+                    msg.get("timestamp", ""),
+                    element_key=f"history_{index}",
+                )
 
 
 def show_chat() -> None:
@@ -211,7 +227,7 @@ def show_chat() -> None:
     with st.chat_message("assistant", avatar="🤖"):
         with st.spinner("🔄 Routing through agents · evaluating risk · checking HITL…"):
             result = _run_pipeline(prompt)
-        _render_response_cards(result, ts)
+        _render_response_cards(result, ts, element_key=f"live_{len(st.session_state.chat_history)}")
 
     st.session_state.chat_history.append(
         {"role": "assistant", "content": result, "timestamp": ts}

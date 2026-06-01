@@ -95,7 +95,7 @@
     "intent": "construction_status",
     "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
     "edited_response": null,
-    "final_response": null,
+    "final_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
     "confidence": 0.72,
     "risk_flags": [
       "construction_delay",
@@ -103,9 +103,9 @@
       "low_confidence"
     ],
     "risk_level": "high",
-    "status": "pending",
-    "reviewer": null,
-    "reviewed_at": null,
+    "status": "approved",
+    "reviewer": "streamlit_reviewer",
+    "reviewed_at": "2026-05-26T06:06:47+00:00",
     "rejection_reason": null,
     "sources": [
       "mock_construction_data"
@@ -115,6 +115,29 @@
     "review_id": "REV-14E1EED5",
     "timestamp": "2026-05-26T05:11:32+00:00",
     "query": "why the tower B is delayed>",
+    "intent": "construction_status",
+    "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "edited_response": null,
+    "final_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
+    "confidence": 0.72,
+    "risk_flags": [
+      "construction_delay",
+      "high_risk",
+      "low_confidence"
+    ],
+    "risk_level": "high",
+    "status": "approved",
+    "reviewer": "streamlit_reviewer",
+    "reviewed_at": "2026-05-26T06:05:42+00:00",
+    "rejection_reason": null,
+    "sources": [
+      "mock_construction_data"
+    ]
+  },
+  {
+    "review_id": "REV-17A2D37B",
+    "timestamp": "2026-06-01T12:02:58+00:00",
+    "query": "Why is Tower B delayed?",
     "intent": "construction_status",
     "original_response": "**Tower B — construction update**\n- Overall status: delayed\n- Completion: 72%\n- Risk level: high\n- Delay reason: material delivery issues\n- Details: Steel and facade material deliveries are 3–4 weeks behind schedule, which is holding up structural work on upper floors.",
     "edited_response": null,
@@ -132,6 +155,139 @@
     "rejection_reason": null,
     "sources": [
       "mock_construction_data"
+    ]
+  },
+  {
+    "review_id": "REV-EC51A78D",
+    "timestamp": "2026-06-01T12:02:58+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "original_response": "**BuildWise — documentation support**\n\n**KYC documents**\nFor KYC you typically need: government photo ID (Aadhaar/passport), PAN card, passport-size photos, and address proof.\n\n**Steps:**\n1. Submit copies at the BuildWise sales office or secure upload portal.\n2. Verification usually takes 2–3 business days.\n3. You will receive email confirmation once KYC is approved.\n\n**Typical timeline:** 2–3 business days after complete submission\n**Contact:** documentation@buildwise.example\n\n**Next step:** Gather the listed documents and contact the team email above. Final requirements may vary by unit and bank — our team will confirm.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_documentation_faq"
+    ]
+  },
+  {
+    "review_id": "REV-3AA2097F",
+    "timestamp": "2026-06-01T12:02:59+00:00",
+    "query": "Water leakage in apartment 1203",
+    "intent": "maintenance_issue",
+    "original_response": "**BuildWise — maintenance request**\n\nPriority: **HIGH**\nSuggested team: **Plumbing & Sanitary**\n\n**Plumbing** (priority: high)\nWater leaks and drainage issues are logged for the plumbing team. Please turn off local water supply if safe to do so.\n\n**What to do:**\n1. Note the location (tower, floor, unit) and when the issue started.\n2. Share photos if available via the resident portal.\n3. Avoid using affected fixtures until the team confirms it is safe.\n\n**Expected SLA:** Response within 24 hours; emergency leaks prioritized same day\n**Assigned team:** Plumbing & Sanitary\n\n**Next step:** Your request will be logged for the team above. You may receive a callback to confirm unit details. Resolution times depend on site access and parts availability.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.84,
+    "risk_flags": [
+      "maintenance_urgent"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_maintenance_playbook"
+    ]
+  },
+  {
+    "review_id": "REV-487B4A53",
+    "timestamp": "2026-06-01T12:03:51+00:00",
+    "query": "I am angry about my payment dispute",
+    "intent": "escalation",
+    "original_response": "**BuildWise — escalation acknowledgment**\n\nThank you for raising this with us. Sensitive matters are reviewed by specialist teams — we cannot resolve legal, refund, or safety outcomes in this chat alone.\n\n**Priority:** CRITICAL\n**Escalation department:** Customer Relations / Legal & Compliance / Accounts & Billing\n\n**Angry customer / service complaint**\nWe understand you are unhappy with your experience. Your message has been escalated to our Customer Relations team.\n\n**Legal issue**\nMatters involving legal proceedings require review by our Legal & Compliance team. We will not discuss case merits in this channel.\n\n**Payment dispute**\nPayment disputes are reviewed by Accounts & Billing with finance oversight.\n\n**Suggested internal action:** (1) Assign a senior relationship manager to call back within 4 business hours. Acknowledge concerns without admitting liability. (2) Route to Legal & Compliance; do not provide legal advice in chat. Request written notice details and unit reference. (3) Freeze disputed line items pending audit; share transaction ID and receipt copies.\n\n**Next step for you:** A team member will contact you using your registered details. Please avoid sharing passwords or full bank account numbers in chat.\n\n*This message is an acknowledgment only — not a final decision on refunds, legal outcomes, or safety investigations.*",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.75,
+    "risk_flags": [
+      "angry_customer",
+      "legal_issue",
+      "payment_dispute",
+      "escalation_required"
+    ],
+    "risk_level": "high",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  },
+  {
+    "review_id": "REV-A95BB73E",
+    "timestamp": "2026-06-01T12:14:53+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "original_response": "**BuildWise — documentation support**\n\n**KYC documents**\nFor KYC you typically need: government photo ID (Aadhaar/passport), PAN card, passport-size photos, and address proof.\n\n**Steps:**\n1. Submit copies at the BuildWise sales office or secure upload portal.\n2. Verification usually takes 2–3 business days.\n3. You will receive email confirmation once KYC is approved.\n\n**Typical timeline:** 2–3 business days after complete submission\n**Contact:** documentation@buildwise.example\n\n**Next step:** Gather the listed documents and contact the team email above. Final requirements may vary by unit and bank — our team will confirm.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_documentation_faq"
+    ]
+  },
+  {
+    "review_id": "REV-EBEB44B6",
+    "timestamp": "2026-06-01T12:17:12+00:00",
+    "query": "Thank you for contacting BuildWise.\n\nBuildWise — property information\n\nWe found 2 matching option(s):\n\n2BHK at Pune — Hinjewadi: ₹68L, available (4 units), possession Dec 2026 Note: Mid-floor units with clubhouse access.\n2BHK at Pune — Baner: ₹82L, limited (2 units), possession Mar 2027 Note: Corner units with park view.\nBudget range (matching): ₹68L – ₹82L\n\nNext step: Share your preferred BHK and budget to narrow options. Final pricing and availability are confirmed by our sales team.\n\nOur current confidence in this answer is 82% (category: property inquiry).\n\nNext step: If you need more detail, reply with your tower name or ask a follow-up question. For urgent safety or legal matters, contact BuildWise support directly.\n\nPlease note: timelines and completion figures are based on available project data and may change after site verification.",
+    "intent": "escalation",
+    "original_response": "**BuildWise — escalation acknowledgment**\n\nThank you for raising this with us. Sensitive matters are reviewed by specialist teams — we cannot resolve legal, refund, or safety outcomes in this chat alone.\n\n**Priority:** CRITICAL\n**Escalation department:** Legal & Compliance / Safety & Security / Operations Command Desk\n\n**Legal issue**\nMatters involving legal proceedings require review by our Legal & Compliance team. We will not discuss case merits in this channel.\n\n**Safety concern**\nSafety concerns are treated as highest priority. Please ensure you are in a safe location.\n\n**Urgent complaint**\nYour request has been flagged as urgent and sent to our Operations Command Desk.\n\n**Suggested internal action:** (1) Route to Legal & Compliance; do not provide legal advice in chat. Request written notice details and unit reference. (2) If there is immediate danger, contact local emergency services first. Notify on-site security and log critical incident ticket. (3) Open priority ticket; operations desk to acknowledge within 2 hours during business hours.\n\n**Next step for you:** A team member will contact you using your registered details. Please avoid sharing passwords or full bank account numbers in chat.\n\n*This message is an acknowledgment only — not a final decision on refunds, legal outcomes, or safety investigations.*",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.75,
+    "risk_flags": [
+      "legal_issue",
+      "safety_issue",
+      "maintenance_urgent",
+      "sla_breach_risk",
+      "escalation_required"
+    ],
+    "risk_level": "high",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_escalation_playbook"
+    ]
+  },
+  {
+    "review_id": "REV-7C0CC1F5",
+    "timestamp": "2026-06-01T12:50:35+00:00",
+    "query": "What KYC documents do I need?",
+    "intent": "documentation_support",
+    "original_response": "To complete your KYC (Know Your Customer) process, you typically need the following documents: a government photo ID (such as Aadhaar or passport), a PAN card, passport-size photos, and proof of address. \n\nYou can submit copies of these documents at the BuildWise sales office or through the secure upload portal. Verification usually takes 2–3 business days, and you will receive an email confirmation once your KYC is approved. \n\nPlease gather the listed documents and feel free to reach out to our team at documentation@buildwise.example for any specific requirements that may vary by unit and bank.",
+    "edited_response": null,
+    "final_response": null,
+    "confidence": 0.86,
+    "risk_flags": [
+      "documentation_missing"
+    ],
+    "risk_level": "medium",
+    "status": "pending",
+    "reviewer": null,
+    "reviewed_at": null,
+    "rejection_reason": null,
+    "sources": [
+      "mock_documentation_faq"
     ]
   }
 ]

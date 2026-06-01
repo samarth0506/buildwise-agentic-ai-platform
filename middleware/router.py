@@ -102,13 +102,18 @@ def normalize_agent_response(
     if not isinstance(sources, list):
         sources = list(sources) if sources else []
 
-    return {
+    normalized: Dict[str, Any] = {
         "intent": intent,
         "response": response,
         "confidence": round(confidence, 2),
         "risk_flags": [str(f) for f in risk_flags if f is not None],
         "sources": [str(s) for s in sources if s is not None],
     }
+    if "llm_used" in agent_response:
+        normalized["llm_used"] = bool(agent_response.get("llm_used"))
+    if agent_response.get("llm_fallback_reason"):
+        normalized["llm_fallback_reason"] = str(agent_response.get("llm_fallback_reason"))
+    return normalized
 
 
 def build_error_response(query: str, error_message: str) -> Dict[str, Any]:
@@ -281,7 +286,7 @@ def handle_user_query(query: str) -> Dict[str, Any]:
         logger.exception("log_interaction raised: %s", exc)
 
     # 10. Unified response
-    return {
+    unified: Dict[str, Any] = {
         "query": query_text,
         "intent": agent_response.get("intent", intent),
         "agent_used": agent_name,
@@ -297,6 +302,11 @@ def handle_user_query(query: str) -> Dict[str, Any]:
         "audit_log_id": audit_log_id,
         "status": router_status,
     }
+    if "llm_used" in agent_response:
+        unified["llm_used"] = bool(agent_response.get("llm_used"))
+    if agent_response.get("llm_fallback_reason"):
+        unified["llm_fallback_reason"] = str(agent_response.get("llm_fallback_reason"))
+    return unified
 
 
 # ---------------------------------------------------------------------------

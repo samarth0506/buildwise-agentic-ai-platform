@@ -42,7 +42,7 @@ def normalize_router_result(result: dict[str, Any]) -> dict[str, Any]:
     except (TypeError, ValueError):
         confidence = 0.0
 
-    return {
+    normalized = {
         "final_response": (
             result.get("final_response")
             or result.get("response")
@@ -60,6 +60,11 @@ def normalize_router_result(result: dict[str, Any]) -> dict[str, Any]:
         "review_id": result.get("review_id"),
         "audit_log_id": result.get("audit_log_id"),
     }
+    if "llm_used" in result:
+        normalized["llm_used"] = bool(result.get("llm_used"))
+    if result.get("llm_fallback_reason"):
+        normalized["llm_fallback_reason"] = str(result.get("llm_fallback_reason"))
+    return normalized
 
 
 def review_draft_text(item: dict[str, Any]) -> str:
